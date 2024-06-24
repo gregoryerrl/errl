@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/app/components/shadcn/theme-provider";
+import Nav from "./components/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <body className={inter.className}>
+          <Nav />
+          <div className="container  min-h-[80vh] py-4">
+            <div className="flex flex-col p-5 font-consolas dark:text-slate-400 border rounded shadow-md bg-gray-50 dark:bg-gray-950">
+              {children}
+            </div>
+          </div>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
