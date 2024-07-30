@@ -105,7 +105,7 @@ export default function Nav() {
           }`}
         >
           <div className="w-4/5 flex justify-around items-center h-full">
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center hover:text-blue-500 transition duration-200">
               <ChevronDown
                 className={`w-3 h-3 ${isResume ? "block" : "hidden"}`}
               />
@@ -114,7 +114,7 @@ export default function Nav() {
               </Link>
             </div>
 
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center hover:text-blue-500 transition duration-200">
               <ChevronDown
                 className={`w-3 h-3 ${isPortfolio ? "block" : "hidden"}`}
               />
@@ -123,7 +123,7 @@ export default function Nav() {
               </Link>
             </div>
 
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center hover:text-blue-500 transition duration-200">
               <ChevronDown
                 className={`w-3 h-3 ${isAbout ? "block" : "hidden"}`}
               />
