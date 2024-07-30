@@ -162,6 +162,21 @@ export default function Nav() {
                       ShadCN UI
                     </a>
                   </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="https://www.framer.com/motion/" target="_blank">
+                      Framer Motion
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="https://www.emailjs.com/" target="_blank">
+                      EmailJS
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="https://vercel.com/" target="_blank">
+                      Vercel
+                    </a>
+                  </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
                     <a
