@@ -112,7 +112,7 @@ export default function Nav() {
             </Link>
             <Link href="/contacts" prefetch={true}>
               <Button variant="secondary" className="border-2 w-full">
-                Contacts
+                More
               </Button>
             </Link>
           </div>

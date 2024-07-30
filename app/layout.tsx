@@ -30,7 +30,7 @@ export default function RootLayout({
           <div className="min-w-[100vw] min-h-screen overflow-x-hidden">
             <div className="flex flex-col z-50 absolute w-full px-6 py-4 min-h-screen space-y-5">
               <Nav />
-              <div className=" h-[70vh] flex flex-col font-consolas">
+              <div className=" min-h-[70vh] flex flex-col font-consolas">
                 {children}
               </div>
             </div>
