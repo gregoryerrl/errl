@@ -180,7 +180,7 @@ export default function Nav() {
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
                     <a
-                      href="https://ui.shadcn.com/"
+                      href="https://github.com/gregoryerrl/errl"
                       target="_blank"
                       className="flex gap-x-2"
                     >
