@@ -17,15 +17,15 @@ export default function Resume() {
           duration: 0.3,
           ease: "easeInOut",
         }}
-        className="border rounded bg bg-slate-50 shadow-md dark:bg-gray-950 w-full p-6"
+        className="border rounded bg bg-slate-50 shadow-md dark:bg-gray-950 w-full py-32 px-20"
       >
         <div className="w-full flex">
           <Image
             src={graduate}
             alt="Picture of the author"
-            className="w-1/3 rounded border"
+            className="w-1/3 h-auto rounded border"
           />
-          <div className="w-2/3 flex flex-col px-8 space-y-10">
+          <div className="w-2/3 flex flex-col px-8 space-y-5">
             <div className="flex flex-col">
               <span className="text-xl font-thin">
                 Graduated <span className="font-bold border-b">CUM LAUDE</span>{" "}
@@ -73,7 +73,7 @@ export default function Resume() {
           duration: 0.3,
           ease: "easeInOut",
         }}
-        className="border rounded bg bg-slate-50 shadow-md dark:bg-gray-950 w-full py-10 mt-5"
+        className="border rounded bg bg-slate-50 shadow-md dark:bg-gray-950 w-full py-32 mt-5"
       >
         <div className="w-full flex flex-col items-center justify-center space-y-16">
           <div className="flex flex-col items-center justify-center">

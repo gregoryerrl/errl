@@ -1,7 +1,14 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { ModeToggle } from "@/app/components/ModeToggle";
-import { Github, Facebook, Mail, Send, FileQuestion } from "lucide-react";
+import {
+  Github,
+  Facebook,
+  Mail,
+  Send,
+  FileQuestion,
+  ChevronDown,
+} from "lucide-react";
 import Image from "next/image";
 import profile from "@/app/assets/images/profile.png";
 import {
@@ -19,6 +26,9 @@ import { motion } from "framer-motion";
 export default function Nav() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isResume = pathname === "/resume";
+  const isPortfolio = pathname === "/portfolio";
+  const isAbout = pathname === "/about";
   return (
     <motion.div
       initial={{ opacity: 0.0, x: 40 }}
@@ -94,27 +104,33 @@ export default function Nav() {
               : "bg-slate-50 dark:bg-gray-950"
           }`}
         >
-          <div className="w-4/5 grid grid-cols-2 gap-4 h-full">
-            <Link href="/resume" prefetch={true}>
-              <Button variant="secondary" className="border-2 w-full">
+          <div className="w-4/5 flex justify-around items-center h-full">
+            <div className="flex flex-col justify-center items-center">
+              <ChevronDown
+                className={`w-3 h-3 ${isResume ? "block" : "hidden"}`}
+              />
+              <Link href="/resume" prefetch={true}>
                 Resume
-              </Button>
-            </Link>
-            <Link href="/portfolio" prefetch={true}>
-              <Button variant="secondary" className="border-2 w-full">
+              </Link>
+            </div>
+
+            <div className="flex flex-col justify-center items-center">
+              <ChevronDown
+                className={`w-3 h-3 ${isPortfolio ? "block" : "hidden"}`}
+              />
+              <Link href="/portfolio" prefetch={true}>
                 Portfolio
-              </Button>
-            </Link>
-            <Link href="/about" prefetch={true}>
-              <Button variant="secondary" className="border-2 w-full">
+              </Link>
+            </div>
+
+            <div className="flex flex-col justify-center items-center">
+              <ChevronDown
+                className={`w-3 h-3 ${isAbout ? "block" : "hidden"}`}
+              />
+              <Link href="/about" prefetch={true}>
                 About
-              </Button>
-            </Link>
-            <Link href="/contacts" prefetch={true}>
-              <Button variant="secondary" className="border-2 w-full">
-                More
-              </Button>
-            </Link>
+              </Link>
+            </div>
           </div>
           <div className="w-1/5 p-1 px-4">
             <div className="items-center justify-center flex flex-col space-y-1 h-full py-1">
