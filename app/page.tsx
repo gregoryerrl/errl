@@ -44,14 +44,14 @@ export default function Home() {
         variants={itemVariants}
         className="w-full flex justify-center text-3xl text-center"
       >
-        I'm Gregory! I am a Developer, and I'm going to showcase my skills
-        through this portfolio!
+        I{"'"}m Gregory! I am a Developer, and I{"'"}m going to showcase my
+        skills through this portfolio!
       </motion.div>
       <motion.div
         variants={itemVariants}
         className="w-full flex justify-center text-3xl"
       >
-        Let's Start!
+        Let{"'"}s Start!
       </motion.div>
       <motion.div
         variants={itemVariants}
