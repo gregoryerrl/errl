@@ -21,8 +21,8 @@ export default function About() {
           <span className="text-3xl mb-2">Did you notice?</span>
           <span className="text-center">
             This portfolio has a bit of a Video-Game Interface vibe to it.
-            That's because gaming is my hobby! And I want to develop videogames
-            someday!
+            That&apos;s because gaming is my hobby! And I want to develop
+            videogames someday!
           </span>
         </div>
       </motion.div>
@@ -41,7 +41,7 @@ export default function About() {
             Details you might want to know about me
           </span>
           <span>
-            I made this section a little bit different from the usual.
+            I made this section a little bit different from the usual!
           </span>
         </div>
       </motion.div>
@@ -89,29 +89,29 @@ export default function About() {
             &quot;How did you become interested in web development?&quot;
           </span>
           <span>
-            I love coding itself. Whether it's software or web development. I
-            love that feeling when your code just works smoothly. It's like I've
-            achieved or acquired something
+            I love coding itself. Whether it&apos;s software or web development.
+            I love that feeling when your code just works smoothly. It&apos;s
+            like I&apos;ve achieved or acquired something
           </span>
           <span className="text-xl mt-8">
-            &quot;What do you do if you can't work out a coding issue by
+            &quot;What do you do if you can&apos;t work out a coding issue by
             yourself?&quot;
           </span>
           <span>
             Not to brag but this rarely happens. Sometimes it does take a little
-            longer for me to solve a difficult coding issue. That's where my
-            hyperfixation strives. But when it does happen. I use chatGPT. But I
-            don't use it to do the code for me, I make it explain what my
-            mistake is to not let it happen again in the future
+            longer for me to solve a difficult coding issue. That&apos;s where
+            my hyperfixation strives. But when it does happen. I use chatGPT.
+            But I don&apos;t use it to do the code for me, I make it explain
+            what my mistake is to not let it happen again in the future
           </span>
           <span className="text-xl mt-8">
             &quot;What are your thoughts on ChatGPT and other generative
             AIs?&quot;
           </span>
           <span>
-            I think they're great as a tool! I don't think they can replace
-            developers yet. After all, they can't see what us humans can when it
-            comes to arts and design.
+            I think they&apos;re great as a tool! I don&apos;t think they can
+            replace developers yet. After all, they can&apos;t see what us
+            humans can when it comes to arts and design.
           </span>
         </div>
       </motion.div>
