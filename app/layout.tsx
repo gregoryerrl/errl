@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/app/components/shadcn/theme-provider";
 import Nav from "./components/Nav";
+import { AuroraBackground } from "./components/aurora-background";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,21 +19,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
-        <body className={inter.className}>
-          <Nav />
-          <div className="container  min-h-[80vh] py-4">
-            <div className="flex flex-col p-5 font-consolas dark:text-slate-400 border rounded shadow-md bg-gray-50 dark:bg-gray-950">
-              {children}
+      <body className={inter.className}>
+        {" "}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="min-w-[100vw] min-h-screen overflow-x-hidden">
+            <div className="flex flex-col z-50 absolute w-full px-6 py-4 min-h-screen space-y-5">
+              <Nav />
+              <div className=" h-[70vh] flex flex-col font-consolas">
+                {children}
+              </div>
             </div>
+            <AuroraBackground>
+              <div></div>
+            </AuroraBackground>
           </div>
-        </body>
-      </ThemeProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
