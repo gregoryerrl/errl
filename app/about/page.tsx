@@ -101,7 +101,7 @@ export default function About() {
             Not to brag but this rarely happens. Sometimes it does take a little
             longer for me to solve a difficult coding issue. That&apos;s where
             my hyperfixation strives. But when it does happen. I use chatGPT.
-            But I don&apos;t use it to do the code for me, I make it explain
+            But I don&apos;t use it to write the code for me, I make it explain
             what my mistake is to not let it happen again in the future
           </span>
           <span className="text-xl mt-8">
@@ -148,7 +148,7 @@ export default function About() {
               target="_blank"
               className="hover:text-blue-600 transition duration-300 flex gap-x-2 mb-10"
             >
-              Download my latest Resume <Download />
+              Download my latest CV <Download />
             </Link>
             <span className="text-xl">Send me a message!</span>
             <ContactForm />

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 export default function Portfolio() {
@@ -33,51 +34,67 @@ export default function Portfolio() {
           duration: 0.3,
           ease: "easeInOut",
         }}
-        className="border rounded bg bg-slate-50 shadow-md dark:bg-gray-950 w-full py-32 mt-5"
+        className="border flex flex-col rounded bg bg-slate-50 shadow-md dark:bg-gray-950 w-full py-32 px-20 mt-5"
       >
-        <div className="w-full flex flex-col items-center justify-center space-y-16">
+        <span className="text-3xl w-full text-center mb-20">
+          Professional Projects
+        </span>
+        <div className="w-full grid grid-cols-2 gap-y-32 gap-x-40">
           <div className="flex flex-col items-center justify-center">
             <Link
               href={"https://www.deventa.com.au/"}
-              className="text-3xl hover:text-blue-500"
+              className="text-3xl hover:text-blue-500 flex items-center"
               target="_blank"
             >
-              Deventa
+              Deventa <ExternalLink className="w-3 h-3 ms-3" />
             </Link>
-            <span className="text-xl">Full Development</span>
+            <span className="text-center text-sm border-b pb-2 mb-2">
+              A subscription-based courseware site where team leaders create and
+              manage training courses for their team.
+            </span>
             <span className="text-xs">NextJS / MongoDB</span>
           </div>
           <div className="flex flex-col items-center justify-center">
             <Link
               href={"https://www.eucannajobs.com/"}
-              className="text-3xl hover:text-blue-500"
+              className="text-3xl hover:text-blue-500 flex items-center"
               target="_blank"
             >
-              EuCannaJobs
+              EuCannaJobs <ExternalLink className="w-3 h-3 ms-3" />
             </Link>
-            <span className="text-xl">Featured Project</span>
+            <span className="text-center text-sm border-b pb-2 mb-2">
+              A subscription-based courseware site where team leaders create and
+              manage training courses for their team.
+            </span>
             <span className="text-xs">AngularJS</span>
           </div>{" "}
           <div className="flex flex-col items-center justify-center">
             <Link
               href={"https://www.gwana.app/"}
-              className="text-3xl hover:text-blue-500"
+              className="text-3xl hover:text-blue-500 flex items-center"
               target="_blank"
             >
-              Gwana
+              Gwana <ExternalLink className="w-3 h-3 ms-3" />
             </Link>
-            <span className="text-xl">Featured Project</span>
+            <span className="text-center text-sm border-b pb-2 mb-2">
+              A platform for booking technicians online to repair and service
+              your gadgets.
+            </span>
             <span className="text-xs">AngularJS / Flutter</span>
           </div>
           <div className="flex flex-col items-center justify-center">
             <Link
               href={"https://fisherees.onrender.com/"}
-              className="text-3xl hover:text-blue-500"
+              className="text-3xl hover:text-blue-500 flex items-center"
               target="_blank"
             >
-              fEEsheries
+              fEEsheries <ExternalLink className="w-3 h-3 ms-3" />
             </Link>
-            <span className="text-xl">IoT Integration</span>
+
+            <span className="text-center text-sm border-b pb-2 mb-2">
+              An IoT dashboard for monitoring and managing fishpond conditions
+              in real-time.
+            </span>
             <span className="text-xs">Arduino / Google Firebase</span>
           </div>
         </div>
