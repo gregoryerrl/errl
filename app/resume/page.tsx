@@ -92,7 +92,7 @@ export default function Resume() {
             <span className="text-xs">AngularJS / ReactJS / NextJS</span>
             <span className="text-xs">HTML / CSS / TypeScript</span>
             <span className="text-xs">Wordpress / NodeJS / SQL</span>
-            <span className="text-xs">PHP / Java / C#</span>
+            <span className="text-xs">PHP / Laravel / C#</span>
 
             <span className="text-xl mt-5">Software Development</span>
             <span className="text-xs">C++ / Java / C</span>
