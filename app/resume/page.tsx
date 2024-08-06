@@ -5,8 +5,16 @@ import Image from "next/image";
 import graduate from "@/app/assets/images/graduate.png";
 import statistics from "@/app/assets/images/statistics.png";
 import iotcon from "@/app/assets/images/iotcon.png";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 export default function Resume() {
+  const [selectTab, setSelectTab] = useState("");
+
+  const toggleTab = (tab: string) => {
+    setSelectTab(selectTab === tab ? "" : tab);
+  };
+
   return (
     <div>
       <motion.div
@@ -88,26 +96,102 @@ export default function Resume() {
           </div>
           <div className="flex flex-col items-center justify-center">
             <span className="text-3xl">Freelancer - 2023-2024</span>
-            <span className="text-xl mt-5">Web Development</span>
-            <span className="text-xs">AngularJS / ReactJS / NextJS</span>
-            <span className="text-xs">HTML / CSS / TypeScript</span>
-            <span className="text-xs">Wordpress / NodeJS / SQL</span>
-            <span className="text-xs">PHP / Laravel / C#</span>
-
-            <span className="text-xl mt-5">Software Development</span>
-            <span className="text-xs">C++ / Java / C</span>
-            <span className="text-xs">WinForms / WPF / .net </span>
-
-            <span className="text-xl mt-5">Mobile App Development</span>
-            <span className="text-xs">Kotlin / Java </span>
-            <span className="text-xs">
-              ReactNative / AndroidStudio / Flutter
+            <span
+              className="text-xl mt-5 flex gap-x-2 items-center cursor-pointer hover:text-blue-500"
+              onClick={() => toggleTab("Web")}
+            >
+              Web Development{" "}
+              {selectTab === "Web" ? (
+                <ChevronUp className="w-3 h-3" />
+              ) : (
+                <ChevronDown className="w-3 h-3" />
+              )}
             </span>
+            <div
+              style={{
+                height: selectTab === "Web" ? "60px" : "0px",
+                transition: "height 0.5s ease",
+                overflow: "hidden",
+              }}
+              className="flex flex-col items-center justify-center"
+            >
+              <span className="text-xs">AngularJS / ReactJS / NextJS</span>
+              <span className="text-xs">HTML / CSS / TypeScript</span>
+              <span className="text-xs">WordPress / NodeJS / SQL</span>
+              <span className="text-xs">PHP / Laravel / C#</span>
+            </div>
 
-            <span className="text-xl mt-5">Prototype Engineer</span>
-            <span className="text-xs">Arduino / Python </span>
-            <span className="text-xs">Circuit Design / Electronics </span>
-            <span className="text-xs">Product Design / CAD </span>
+            <span
+              className="text-xl mt-5 flex gap-x-2 items-center cursor-pointer hover:text-blue-500"
+              onClick={() => toggleTab("Software")}
+            >
+              Software Development
+              {selectTab === "Software" ? (
+                <ChevronUp className="w-3 h-3" />
+              ) : (
+                <ChevronDown className="w-3 h-3" />
+              )}
+            </span>
+            <div
+              style={{
+                height: selectTab === "Software" ? "60px" : "0px",
+                transition: "height 0.5s ease",
+                overflow: "hidden",
+              }}
+              className="flex flex-col items-center justify-center"
+            >
+              <span className="text-xs">Java / Python / C++</span>
+              <span className="text-xs">.NET / Ruby / Go</span>
+              <span className="text-xs">Spring / Django / Flask</span>
+            </div>
+
+            <span
+              className="text-xl mt-5 flex gap-x-2 items-center cursor-pointer hover:text-blue-500"
+              onClick={() => toggleTab("Mobile")}
+            >
+              Mobile Development{" "}
+              {selectTab === "Mobile" ? (
+                <ChevronUp className="w-3 h-3" />
+              ) : (
+                <ChevronDown className="w-3 h-3" />
+              )}
+            </span>
+            <div
+              style={{
+                height: selectTab === "Mobile" ? "60px" : "0px",
+                transition: "height 0.5s ease",
+                overflow: "hidden",
+              }}
+              className="flex flex-col items-center justify-center"
+            >
+              <span className="text-xs">Flutter / React Native</span>
+              <span className="text-xs">Swift / Kotlin</span>
+              <span className="text-xs">iOS / Android</span>
+            </div>
+
+            <span
+              className="text-xl mt-5 flex gap-x-2 items-center cursor-pointer hover:text-blue-500"
+              onClick={() => toggleTab("Prototype")}
+            >
+              Prototype Development{" "}
+              {selectTab === "Prototype" ? (
+                <ChevronUp className="w-3 h-3" />
+              ) : (
+                <ChevronDown className="w-3 h-3" />
+              )}
+            </span>
+            <div
+              style={{
+                height: selectTab === "Prototype" ? "60px" : "0px",
+                transition: "height 0.5s ease",
+                overflow: "hidden",
+              }}
+              className="flex flex-col items-center justify-center"
+            >
+              <span className="text-xs">Arduino / Raspberry Pi</span>
+              <span className="text-xs">3D Printing</span>
+              <span className="text-xs">IoT Prototyping</span>
+            </div>
           </div>
         </div>
       </motion.div>
