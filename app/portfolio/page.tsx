@@ -84,18 +84,17 @@ export default function Portfolio() {
           </div>
           <div className="flex flex-col items-center justify-center">
             <Link
-              href={"https://fisherees.onrender.com/"}
+              href={"https://kreel.vercel.app/"}
               className="text-3xl hover:text-blue-500 flex items-center"
               target="_blank"
             >
-              fEEsheries <ExternalLink className="w-3 h-3 ms-3" />
+              Kreel <ExternalLink className="w-3 h-3 ms-3" />
             </Link>
 
             <span className="text-center text-sm border-b pb-2 mb-2">
-              An IoT dashboard for monitoring and managing fishpond conditions
-              in real-time.
+              A platform for various AI Tools
             </span>
-            <span className="text-xs">Arduino / Google Firebase</span>
+            <span className="text-xs">NextJS / REST API</span>
           </div>
         </div>
       </motion.div>
