@@ -91,7 +91,7 @@ export default function Portfolio() {
             />
             <ProjectCard
               title="EuCannaJobs"
-              description="A subscription-based courseware site where team leaders create and manage training courses for their team."
+              description="A specialized platform for finding cannabis-related jobs around Europe."
               technologies="AngularJS"
               link="https://www.eucannajobs.com/"
             />
