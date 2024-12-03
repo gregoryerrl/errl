@@ -33,7 +33,7 @@ export default function Home() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="min-h-screen w-full flex flex-col items-center justify-center p-4 space-y-8 bg-gradient-to-b from-slate-100 to-slate-200 dark:from-gray-900 dark:to-gray-800 text-slate-800 dark:text-slate-200"
+      className="min-h-screen w-full flex flex-col items-center justify-center p-4 space-y-8 text-slate-800 dark:text-slate-200"
     >
       <motion.div
         variants={itemVariants}
