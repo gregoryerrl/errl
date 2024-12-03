@@ -34,7 +34,7 @@ export default function RootLayout({
           <AuroraBackground>
             <div className="relative z-10 flex flex-col w-full px-4 sm:px-6 py-4 min-h-screen">
               <Nav />
-              <main className="flex-grow flex flex-col font-inconsolata">
+              <main className="flex-grow flex flex-col font-inconsolata max-w-screen">
                 {children}
               </main>
             </div>

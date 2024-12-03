@@ -24,7 +24,7 @@ const RPGSection: React.FC<{ title: string; children: React.ReactNode }> = ({
   title,
   children,
 }) => (
-  <Card className="mb-8 bg-card border-primary/20">
+  <Card className="mb-8 bg-card border-primary/20 shadow-lg">
     <CardHeader>
       <CardTitle className="text-2xl font-bold text-primary">{title}</CardTitle>
     </CardHeader>
@@ -36,7 +36,7 @@ export default function About() {
   const { theme } = useTheme();
 
   return (
-    <div className={`min-h-screen bg-background text-foreground p-8 ${theme}`}>
+    <div className={`min-h-screen bg-none text-foreground p-8 ${theme}`}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -139,7 +139,7 @@ function ProfileSection({ isHomePage }: { isHomePage: boolean }) {
           : "bg-background shadow-lg"
       }`}
     >
-      <div className="w-1/4 lg:w-1/5 mr-4 border border-primary/20 rounded">
+      <div className="w-1/4 lg:w-1/5 mr-4 border border-primary/20 rounded hidden md:block">
         <Image
           src={profile}
           alt="Picture of the author"
@@ -147,15 +147,24 @@ function ProfileSection({ isHomePage }: { isHomePage: boolean }) {
         />
       </div>
       <div className="flex flex-col justify-center flex-grow space-y-4">
-        <h1 className="text-center text-lg lg:text-2xl 2xl:text-4xl rpg-text-shadow">
-          <span className="">Player Name:</span> Gregory{" "}
-          <Link href="/" className="dark:text-slate-200 text-cyan-500">
-            Errl
-          </Link>{" "}
-          Serrano Babela
-        </h1>
+        <div className="w-full flex items-center justify-center">
+          <div className="w-6/12 border border-primary/20 rounded block md:hidden">
+            <Image
+              src={profile}
+              alt="Picture of the author"
+              className="w-full h-auto rounded rpg-border"
+            />
+          </div>
+          <h1 className="text-center text-lg lg:text-2xl 2xl:text-4xl rpg-text-shadow">
+            <span className="">Player Name:</span> Gregory{" "}
+            <Link href="/" className="dark:text-slate-200 text-cyan-500">
+              Errl
+            </Link>{" "}
+            Serrano Babela
+          </h1>
+        </div>
         <h1 className="text-center text-sm lg:text-xl 2xl:text-2xl rpg-text-shadow">
-          <span className="">Job:</span> Web Developer
+          <span className="">Role:</span> Computer Scientist
         </h1>
         <div className="flex justify-around">
           {socialLinks.map((link, index) => (
