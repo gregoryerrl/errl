@@ -62,6 +62,17 @@ export default function DefaultPage() {
   ];
 
   useEffect(() => {
+    const handleScroll = () => {
+      const bottom =
+        window.scrollY + window.innerHeight ===
+        document.documentElement.scrollHeight;
+      setIsEnded(bottom);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     const lenis = new Lenis({
       autoRaf: true,
     });
@@ -257,7 +268,7 @@ export default function DefaultPage() {
         </div>
 
         <div style={{ height: "2000px" }} className="scrollDist w-full"></div>
-        <div className="w-[80vw] md:w-[60vw] mx-auto gap-5 inline-grid grid-cols-1 justify-center z-10 mb-34">
+        <div className="w-[80vw] md:w-[60vw] mx-auto gap-7 inline-grid grid-cols-1 justify-center z-10 mb-34">
           {images.map((image, index) => (
             <Link key={index} href={image.link} target="_blank">
               <Image
@@ -266,7 +277,7 @@ export default function DefaultPage() {
                 alt={`Image ${index}`}
                 width={1000}
                 height={0}
-                className="w-full h-auto shadow-2xl rounded border border-slate-800 dark:border-slate-200 transistion-all duration-300"
+                className="hover:scale-110 w-full h-auto shadow-2xl rounded border border-slate-800 dark:border-slate-200 transistion-all duration-300"
                 ref={image.ref}
               />
             </Link>
