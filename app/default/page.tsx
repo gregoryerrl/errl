@@ -128,9 +128,8 @@ export default function DefaultPage() {
       "+=1"
     );
 
-    tl.fromTo(
+    tl.to(
       textThreeRef.current,
-      { opacity: 1 },
       { opacity: 0, duration: 2 },
 
       "-=2"
@@ -160,7 +159,7 @@ export default function DefaultPage() {
       },
     });
 
-    tl2.fromTo(worksTextOne.current, { y: 0 }, { y: -300, duration: 3 }, "+=2");
+    tl2.to(worksTextOne.current, { y: -300, duration: 3 }, "+=2");
 
     tl2.fromTo(
       worksScreenRef.current,
@@ -245,9 +244,12 @@ export default function DefaultPage() {
             ref={worksImagesRef}
           ></div>
         </div>
-        <div ref={worksTextOne} className="fixed top-0 w-[100vw] h-[15vh] z-40">
+        <div
+          ref={worksTextOne}
+          className="fixed top-0 w-[100vw] h-[15vh] z-40 opacity-0"
+        >
           <div className="w-full h-2/3 bg-gray-400 dark:bg-slate-900 flex items-center justify-center">
-            <span className="font-light italic text-3xl text-center">
+            <span className="font-light italic text-3xl lg:text-4xl xl:text-5xl text-center">
               Crafted with passion and dedication
             </span>
           </div>
@@ -281,6 +283,9 @@ export default function DefaultPage() {
           <span className="text-3xl">An AI Programmer</span>
           <span className="text-3xl">A Product Engineer</span>
           <span className="text-3xl">A Digital Artist</span>
+          <span className="text-3xl text-purple-800 dark:text-green-500">
+            gregoryerrl@gmail.com
+          </span>
         </div>
       </section>
     </AuroraBackground>
