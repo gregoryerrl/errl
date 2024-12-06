@@ -256,7 +256,7 @@ export default function DefaultPage() {
           <div className="w-full h-1/3 bg-gradient-to-b from-gray-400 dark:from-slate-900 to-transparent"></div>
         </div>
 
-        <div style={{ height: "3000px" }} className="scrollDist w-full"></div>
+        <div style={{ height: "2000px" }} className="scrollDist w-full"></div>
         <div className="w-[80vw] md:w-[60vw] mx-auto gap-5 inline-grid grid-cols-1 justify-center z-10 mb-34">
           {images.map((image, index) => (
             <Link key={index} href={image.link} target="_blank">
@@ -277,7 +277,7 @@ export default function DefaultPage() {
           style={{ height: "3000px" }}
           className="scrollDistTwo w-full flex flex-col items-center justify-center gap-y-52"
         >
-          <div className="w-full h-[100vh]"></div>
+          <div className="w-full h-[100vh] block md:hidden"></div>
           <div className="w-full h-[50vh]"></div>
           <span className="text-3xl">A Full-Stack Developer</span>
           <span className="text-3xl">An AI Programmer</span>
