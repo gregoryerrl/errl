@@ -18,14 +18,14 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/app/components/shadcn/ui/card";
-import { Button } from "@/app/components/shadcn/ui/button";
+} from "@/app/root-components/shadcn/ui/card";
+import { Button } from "@/app/root-components/shadcn/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/app/components/shadcn/ui/accordion";
+} from "@/app/root-components/shadcn/ui/accordion";
 
 // Assume these imports are correct
 import graduate from "@/app/simple-rpg/assets/images/graduate.png";

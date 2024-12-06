@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Inconsolata } from "next/font/google";
+import { Inter, Inconsolata, Pixelify_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/app/components/shadcn/theme-provider";
+import { ThemeProvider } from "@/app/root-components/shadcn/theme-provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const inconsolata = Inconsolata({
   subsets: ["latin"],
   variable: "--font-inconsolata",
+});
+const pixelify = Pixelify_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-pixelify-sans",
 });
 
 export const metadata: Metadata = {
@@ -21,8 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${inconsolata.variable}`}>
-      <body className={inter.className}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${inconsolata.variable} ${pixelify.variable}`}
+    >
+      <body
+        className={`${inter.variable} ${inconsolata.variable} ${pixelify.variable}`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

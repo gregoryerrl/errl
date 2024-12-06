@@ -16,6 +16,8 @@ const config = {
   theme: {
     fontFamily: {
       consolas: ["consolas"],
+      pixelify: ["var(--font-pixelify-sans)", "system-ui", "sans-serif"],
+      tiny5: ["Tiny5", "system-ui", "sans-serif"],
     },
     container: {
       center: true,

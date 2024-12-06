@@ -15,7 +15,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { ModeToggle } from "@/app/components/ModeToggle";
+import { ModeToggle } from "@/app/root-components/ModeToggle";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,8 +23,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/app/components/shadcn/ui/dropdown-menu";
-import { Button } from "@/app/components/shadcn/ui/button";
+} from "@/app/root-components/shadcn/ui/dropdown-menu";
+import { Button } from "@/app/root-components/shadcn/ui/button";
 import profile from "@/app/simple-rpg/assets/images/profile.png";
 
 const socialLinks = [
@@ -80,7 +80,7 @@ export default function Nav() {
       className="w-full"
     >
       <nav
-        className={`flex flex-col lg:flex-row w-full gap-4 font-consolas dark:text-slate-400 transition-all duration-300 ${
+        className={`flex flex-col lg:flex-row w-full gap-4 font-consolas dark:text-slate-400 transition-all duration-300 font-tiny5 ${
           isHomePage ? "hidden" : "py-4"
         }`}
       >
@@ -232,7 +232,7 @@ function NavigationSection({
       }`}
     >
       <h1 className="hidden lg:block p-2 text-2xl font-black">Menu</h1>
-      <div className="flex flex-col lg:flex-row justify-between items-center mb-4 lg:mb-0 lg:mb-5 lg:py-2 lg:border-b lg:border-t">
+      <div className="flex flex-col lg:flex-row justify-between items-center mb-4 lg:mb-0 lg:mb-5 lg:py-2 lg:border-b lg:border-t text-xl">
         {navLinks.map((link, index) => (
           <NavLink
             key={index}
@@ -244,7 +244,7 @@ function NavigationSection({
       </div>
       <div className="flex justify-center lg:justify-end mt-4 lg:mt-0">
         <div className="flex items-center space-x-4">
-          <ModeToggle />
+          <ModeToggle className="w-3/4" />
           <TechnologiesDropdown />
         </div>
       </div>
@@ -269,7 +269,7 @@ function NavLink({
       <Link href={href} prefetch={true} onClick={onClick}>
         <Button
           variant="ghost"
-          className={`rpg-nav-button 2xl:text-xl ${
+          className={`rpg-nav-button text-lg 2xl:text-xl ${
             isActive ? "rpg-nav-button-active" : ""
           }`}
         >

@@ -10,8 +10,8 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/app/components/shadcn/ui/card";
-import { Button } from "@/app/components/shadcn/ui/button";
+} from "@/app/root-components/shadcn/ui/card";
+import { Button } from "@/app/root-components/shadcn/ui/button";
 
 interface ProjectCardProps {
   title: string;

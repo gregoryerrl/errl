@@ -10,15 +10,15 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/app/components/shadcn/ui/card";
-import { Button } from "@/app/components/shadcn/ui/button";
+} from "@/app/root-components/shadcn/ui/card";
+import { Button } from "@/app/root-components/shadcn/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/app/components/shadcn/ui/accordion";
-import ContactForm from "../components/ContactForm";
+} from "@/app/root-components/shadcn/ui/accordion";
+import ContactForm from "../rpg-components/ContactForm";
 
 const RPGSection: React.FC<{ title: string; children: React.ReactNode }> = ({
   title,

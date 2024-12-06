@@ -1,6 +1,5 @@
-import Nav from "./components/Nav";
+import Nav from "./rpg-components/Nav";
 import "../globals.css";
-import { AuroraBackground } from "./components/aurora-background";
 
 export default function SimpleRPGLayout({
   children,
@@ -9,14 +8,12 @@ export default function SimpleRPGLayout({
 }>) {
   return (
     <section>
-      <AuroraBackground>
-        <div className="relative z-10 flex flex-col w-full px-4 sm:px-6 py-4 min-h-screen">
-          <Nav />
-          <section className="flex-grow flex flex-col font-inconsolata max-w-screen">
-            {children}
-          </section>
-        </div>
-      </AuroraBackground>
+      <div className="relative z-10 flex flex-col w-full px-4 sm:px-6 py-4 min-h-screen font-tiny5">
+        <Nav />
+        <section className="flex-grow flex flex-col max-w-screen">
+          {children}
+        </section>
+      </div>
     </section>
   );
 }

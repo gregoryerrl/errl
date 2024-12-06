@@ -74,3 +74,62 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: "Tiny5";
+  src: url("/fonts/Tiny5-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  width: 100%;
+}
+
+.intro-text,
+.work-item {
+  will-change: transform, opacity;
+}
+
+/* Additional styles for smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure full height sections */
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.125rem;
+  }
+}
+
+/* Improve contrast for better readability */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
