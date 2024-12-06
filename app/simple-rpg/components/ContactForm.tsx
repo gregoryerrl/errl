@@ -1,7 +1,7 @@
 import emailjs from "emailjs-com";
-import { Textarea } from "./shadcn/ui/textarea";
-import { Button } from "./shadcn/ui/button";
-import { Input } from "./shadcn/ui/input";
+import { Textarea } from "@/app/components/shadcn/ui/textarea";
+import { Button } from "@/app/components/shadcn/ui/button";
+import { Input } from "@/app/components/shadcn/ui/input";
 
 const ContactForm = () => {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {

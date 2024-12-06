@@ -1,5 +1,4 @@
 "use client";
-import Nav from "@/app/components/Nav";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
@@ -58,9 +57,9 @@ export default function Home() {
         </h2>
         <div className="space-y-3">
           {[
-            { href: "/resume", label: "Resume" },
-            { href: "/portfolio", label: "Portfolio" },
-            { href: "/about", label: "About Me" },
+            { href: "/simple-rpg/resume", label: "Resume" },
+            { href: "/simple-rpg/portfolio", label: "Portfolio" },
+            { href: "/simple-rpg/about", label: "About Me" },
           ].map((link) => (
             <Link
               key={link.href}

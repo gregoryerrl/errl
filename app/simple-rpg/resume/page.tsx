@@ -28,9 +28,9 @@ import {
 } from "@/app/components/shadcn/ui/accordion";
 
 // Assume these imports are correct
-import graduate from "@/app/assets/images/graduate.png";
-import statistics from "@/app/assets/images/statistics.png";
-import iotcon from "@/app/assets/images/iotcon.png";
+import graduate from "@/app/simple-rpg/assets/images/graduate.png";
+import statistics from "@/app/simple-rpg/assets/images/statistics.png";
+import iotcon from "@/app/simple-rpg/assets/images/iotcon.png";
 
 interface RPGSectionProps {
   title: string;

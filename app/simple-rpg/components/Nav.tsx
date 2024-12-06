@@ -24,8 +24,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/app/components/shadcn/ui/dropdown-menu";
-import { Button } from "./shadcn/ui/button";
-import profile from "@/app/assets/images/profile.png";
+import { Button } from "@/app/components/shadcn/ui/button";
+import profile from "@/app/simple-rpg/assets/images/profile.png";
 
 const socialLinks = [
   { href: "https://github.com/gregoryerrl", icon: Github, label: "GitHub" },
