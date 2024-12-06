@@ -1,7 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import {
+  ArrowBigDown,
+  ChevronRight,
+  MousePointer2,
+  Pointer,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import {
   Select,
@@ -106,25 +111,16 @@ export default function Home() {
             <ModeToggle className="" />
           </div>
         </div>{" "}
-        <div
-          className="absolute top-4 right-50 flex items-center flex min-h-[10vh] block md:hidden"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
+        <div className="absolute top-4 right-50 flex items-center flex min-h-[10vh] block md:hidden">
           <div
-            className={`${
-              isHovered ? "opacity-100" : "opacity-0"
-            } w-full flex gap-5 items-center justify-center transition-all duration-300`}
+            className={`w-full flex gap-5 items-center justify-center transition-all duration-300`}
           >
             <Select onValueChange={handleModeChange}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Select Theme" />
               </SelectTrigger>
               <SelectContent>
-                <div
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
+                <div>
                   <SelectItem value="Default">Default</SelectItem>
                   <SelectItem value="Simple RPG">Simple RPG</SelectItem>
                 </div>
@@ -151,7 +147,8 @@ export default function Home() {
               variants={itemVariants}
               className="flex items-center justify-center w-full"
             >
-              <div className="relative flex items-center justify-center">
+              <div className="relative flex flex-col items-center justify-center">
+                <Pointer className="animate-bounce absolute -bottom-20  w-10 h-10 opacity-40 dark:opacity-10" />
                 <Image
                   src={light}
                   alt="Picture of the author"
