@@ -49,9 +49,9 @@ const socialLinks = [
 ];
 
 const navLinks = [
-  { href: "/resume", label: "Resume" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/about", label: "About" },
+  { href: "/simple-rpg/resume", label: "Resume" },
+  { href: "/simple-rpg/portfolio", label: "Portfolio" },
+  { href: "/simple-rpg/about", label: "About" },
 ];
 
 const technologies = [
