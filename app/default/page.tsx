@@ -45,6 +45,8 @@ export default function DefaultPage() {
       if (timer) clearTimeout(timer);
       timer = window.setTimeout(() => setIsStopped(false), 3000);
     });
+
+    gsap.ticker.lagSmoothing(1);
   }, []);
 
   const handleMouseEnter = () => {
