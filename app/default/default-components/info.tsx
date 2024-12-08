@@ -28,7 +28,13 @@ export default function Info() {
 
   return (
     <>
-      <section className="portfolioExit info w-screen h-screen relative flex justify-center items-center">
+      <section className="info absolute w-screen h-screen relative flex justify-center items-center">
+        Info
+      </section>
+      <section className="info absolute w-screen h-screen relative flex justify-center items-center">
+        Info
+      </section>
+      <section className="info absolute w-screen h-screen relative flex justify-center items-center">
         Info
       </section>
     </>

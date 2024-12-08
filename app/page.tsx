@@ -149,18 +149,22 @@ export default function Home() {
             >
               <div className="relative flex flex-col items-center justify-center">
                 <Pointer className="animate-bounce absolute -bottom-20  w-10 h-10 opacity-40 dark:opacity-10" />
-                <Image
-                  src={light}
-                  alt="Picture of the author"
-                  className="w-auto h-[30vh] rounded dark:hidden hover:scale-125 cursor-pointer transition-all duration-300 z-10"
-                  onClick={() => router.push("/default")}
-                />
-                <Image
-                  src={dark}
-                  alt="Picture of the author"
-                  className="w-auto h-[30vh] rounded hidden dark:block hover:scale-125 cursor-pointer transition-all duration-300 z-10"
-                  onClick={() => router.push("/default")}
-                />
+                <Link
+                  href={"/default"}
+                  prefetch={true}
+                  className="hover:scale-125  transition-all duration-300 z-10"
+                >
+                  <Image
+                    src={light}
+                    alt="Picture of the author"
+                    className="w-auto h-[30vh] rounded dark:hidden"
+                  />
+                  <Image
+                    src={dark}
+                    alt="Picture of the author"
+                    className="w-auto h-[30vh] rounded hidden dark:block"
+                  />
+                </Link>
                 <div className="absolute w-2/3 h-2/3 bg-black dark:bg-foreground rounded-full animate-ping hover:animate-none absolute opacity-75"></div>
               </div>
             </motion.div>

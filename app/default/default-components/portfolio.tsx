@@ -67,16 +67,6 @@ export default function Intro() {
       },
     });
 
-    const exit = gsap.timeline({
-      smoothChildTiming: true,
-      scrollTrigger: {
-        trigger: ".portfolioExit",
-        start: "top bottom",
-        end: "10% top",
-        scrub: 1,
-      },
-    });
-
     const viewWidth = window.innerWidth;
     const viewHeight = window.innerHeight;
 
@@ -126,54 +116,64 @@ export default function Intro() {
       2
     );
 
+    const exit = gsap.timeline({
+      smoothChildTiming: true,
+      scrollTrigger: {
+        trigger: ".portfolioExit",
+        start: "80% top",
+        end: "bottom top",
+        scrub: 1,
+        markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
+      },
+    });
+
     exit.to(worksTextOne.current, {
       y: "-100%",
       duration: 1,
-      immediateRender: false,
+      delay: 3,
     });
 
-    exit.fromTo(
-      worksScreenRef.current,
-      { height: "100%" },
-      {
-        height: 0,
-        duration: 1,
-        immediateRender: false,
-      }
-    );
+    exit.to(worksScreenRef.current, {
+      borderRadius: "30%",
+      y: "-100%",
+      duration: 4,
+      delay: 5,
+    });
   });
   return (
-    <section className="portfolioTrigger w-screen relative flex justify-center items-center">
-      <div
-        ref={worksScreenRef}
-        className="fixed top-0 w-[100vw] h-screen worksScreen bg-gray-400 dark:bg-slate-900 z-10 flex flex-col items-center justify-center"
-      ></div>
-      <div
-        ref={worksTextOne}
-        className="fixed top-0 w-[100vw] h-[15vh] z-40 opacity-0"
-      >
-        <div className="w-full h-2/3 bg-gray-400 dark:bg-slate-900 flex items-center justify-center">
-          <span className="font-light italic text-3xl lg:text-4xl xl:text-5xl text-center">
-            Crafted with passion and dedication
-          </span>
+    <>
+      <section className="portfolioTrigger w-screen relative flex justify-center items-center">
+        <div
+          ref={worksScreenRef}
+          className="fixed top-0 w-[100vw] h-screen worksScreen bg-gray-400 dark:bg-slate-900 z-10 flex flex-col items-center justify-center"
+        ></div>
+        <div
+          ref={worksTextOne}
+          className="fixed top-0 w-[100vw] h-[15vh] z-40 opacity-0"
+        >
+          <div className="w-full h-2/3 bg-gray-400 dark:bg-slate-900 flex items-center justify-center">
+            <span className="font-light italic text-3xl lg:text-4xl xl:text-5xl text-center">
+              Crafted with passion and dedication
+            </span>
+          </div>
+          <div className="w-full h-1/3 bg-gradient-to-b from-gray-400 dark:from-slate-900 to-transparent"></div>
         </div>
-        <div className="w-full h-1/3 bg-gradient-to-b from-gray-400 dark:from-slate-900 to-transparent"></div>
-      </div>
-      <div className="w-[80vw] md:w-[60vw] mx-auto gap-7 inline-grid grid-cols-1 justify-center z-10">
-        {images.map((image, index) => (
-          <Link key={index} href={image.link} target="_blank">
-            <Image
-              key={image.index}
-              src={image.src}
-              alt={`Image ${index}`}
-              width={1000}
-              height={0}
-              className="hover:scale-110 w-full h-auto shadow-2xl rounded border border-slate-800 dark:border-slate-200 transistion-all duration-300"
-              ref={image.ref}
-            />
-          </Link>
-        ))}
-      </div>
-    </section>
+        <div className="portfolioExit w-[100vw] px-20 md:px-72 mt-96 mx-auto gap-7 inline-grid grid-cols-1 justify-center z-10 bg-gray-400 dark:bg-slate-900">
+          {images.map((image, index) => (
+            <Link key={index} href={image.link} target="_blank">
+              <Image
+                key={image.index}
+                src={image.src}
+                alt={`Image ${index}`}
+                width={1000}
+                height={0}
+                className="hover:scale-110 w-full h-auto shadow-2xl rounded border border-slate-800 dark:border-slate-200 transistion-all duration-300"
+                ref={image.ref}
+              />
+            </Link>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
