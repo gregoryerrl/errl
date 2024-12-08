@@ -21,7 +21,7 @@ export default function Intro() {
         end: "bottom top",
         scrub: true,
         pin: true,
-        markers: true,
+        markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
         pinnedContainer: ".intro",
       },
     });

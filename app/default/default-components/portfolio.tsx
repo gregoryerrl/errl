@@ -63,6 +63,7 @@ export default function Intro() {
         start: "top bottom",
         end: "+=120% center",
         scrub: 1,
+        markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
       },
     });
 
