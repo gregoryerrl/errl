@@ -138,6 +138,12 @@ export default function Intro() {
         immediateRender: false,
       }
     );
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   });
   return (
     <section className="portfolioTrigger w-screen relative flex justify-center items-center">

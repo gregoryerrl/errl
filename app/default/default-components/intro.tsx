@@ -53,6 +53,12 @@ export default function Intro() {
       { x: 0, opacity: 1 },
       { x: 300, opacity: 0, duration: 4 }
     );
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   });
 
   return (

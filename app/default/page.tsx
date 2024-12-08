@@ -45,12 +45,8 @@ export default function DefaultPage() {
       if (timer) clearTimeout(timer);
       timer = window.setTimeout(() => setIsStopped(false), 3000);
     });
-    // Register ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
-    // Create timeline with ScrollTrigger
-
-    // Animate first text out
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
