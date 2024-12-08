@@ -45,11 +45,6 @@ export default function DefaultPage() {
       if (timer) clearTimeout(timer);
       timer = window.setTimeout(() => setIsStopped(false), 3000);
     });
-    gsap.registerPlugin(ScrollTrigger);
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
   }, []);
 
   const handleMouseEnter = () => {
