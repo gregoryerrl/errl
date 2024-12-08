@@ -5,13 +5,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import "../default.css";
+import TextPlugin from "gsap/TextPlugin";
+import { text } from "stream/consumers";
 export default function Intro() {
   const textOneRef = useRef(null);
   const textTwoRef = useRef(null);
   const textThreeRef = useRef(null);
 
   useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
     const intro = gsap.timeline({
       smoothChildTiming: true,
@@ -22,86 +24,106 @@ export default function Intro() {
         scrub: true,
         pin: true,
         markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
-        pinnedContainer: ".intro",
+        pinnedContainer: ".introScreen",
       },
     });
 
-    intro.fromTo(
-      textOneRef.current,
-      { x: 0, opacity: 1 },
-      { x: 300, opacity: 0, duration: 4 }
-    );
+    const textTwo = "Computer Scientist";
 
-    // Animate second text in
-    intro.fromTo(
-      textTwoRef.current,
-      { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 4 }
-    );
-
-    intro.fromTo(
-      textTwoRef.current,
-      { x: 0, opacity: 1 },
-      { x: 300, opacity: 0, duration: 4 }
-    );
-
-    intro.fromTo(
-      textThreeRef.current,
-      { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 4 }
-    );
-
-    intro.fromTo(
-      textThreeRef.current,
-      { x: 0, opacity: 1 },
-      { x: 300, opacity: 0, duration: 4 }
-    );
+    intro
+      .fromTo(
+        textOneRef.current,
+        { x: 0, opacity: 1 },
+        { x: 300, opacity: 0, duration: 20 },
+        "+=5"
+      )
+      .fromTo(
+        ".introLine",
+        {
+          height: 0,
+        },
+        { height: "100%", duration: 20, ease: "power4.out" }
+      )
+      .to(textTwoRef.current, {
+        duration: 20,
+        text: { value: textTwo },
+      })
+      .to(
+        textTwoRef.current,
+        {
+          duration: 20,
+          delay: 1,
+          text: { value: "", rtl: true },
+        },
+        "+=20"
+      )
+      .fromTo(
+        textThreeRef.current,
+        { y: -100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 20 }
+      )
+      .fromTo(
+        textThreeRef.current,
+        { y: 0, opacity: 1 },
+        { y: 300, opacity: 0, duration: 20 },
+        "+=20"
+      )
+      .fromTo(
+        ".introLine",
+        {
+          y: 0,
+        },
+        { y: "-100%", duration: 20, ease: "power4.out" }
+      );
   });
 
   return (
     <>
       <main>
-        <section className="relative intro w-screen h-screen flex justify-center items-center">
-          <div
-            ref={textOneRef}
-            className="absolute w-full font-bold text-6xl md:text-8xl flex items-center justify-center textOne text-center"
-          >
-            <div className="flex flex-col">
-              <span className="text-lg text-left">Gregory</span>
-              <span>
-                E<span className="text-purple-900 dark:text-green-500">r</span>
-                rl
-              </span>
-              <span className="text-lg text-right">Babela</span>
+        <div className="intro w-screen h-[400vh]">
+          <div className="relative introScreen w-screen h-screen flex">
+            <div
+              ref={textOneRef}
+              className="absolute w-full font-bold text-6xl md:text-8xl flex items-center justify-center self-center justify-self-center"
+            >
+              <div className="flex flex-col">
+                <span className="text-lg text-left">Gregory</span>
+                <span>
+                  E
+                  <span className="text-purple-900 dark:text-green-500">r</span>
+                  rl
+                </span>
+                <span className="text-lg text-right">Babela</span>
+              </div>
             </div>
-          </div>
-          <span
-            ref={textTwoRef}
-            className="absolute w-[100vw] font-bold text-6xl md:text-8xl textTwo text-center"
-          >
-            <span className="text-purple-900 dark:text-green-500">Compute</span>
-            r Scientist
-          </span>
-          <span
-            ref={textThreeRef}
-            className="absolute w-[100vw] font-bold text-6xl md:text-8xl textTwo text-center"
-          >
-            <span className="text-purple-900 dark:text-green-500">Design</span>
-            er
-          </span>
-        </section>
-        <section>
-          <div className="w-full flex flex-col items-center justify-center gap-y-96">
-            <span className="text-3xl">A Full-Stack Developer</span>
-            <span className="text-3xl">An AI Programmer</span>
-            <span className="text-3xl">A Product Engineer</span>
-            <span className="text-3xl">A Digital Artist</span>
-            <span className="text-3xl text-purple-800 dark:text-green-500">
-              gregoryerrl@gmail.com
+
+            <div className="introLine absolute w-1 h-full bg-purple-900 dark:bg-green-500 opacity-30 left-40"></div>
+            <span
+              ref={textTwoRef}
+              className="absolute left-52 w-[100vw] font-bold text-5xl md:text-7xl text-purple-900 dark:text-green-500  self-center justify-self-center"
+            ></span>
+            <span
+              ref={textThreeRef}
+              className="absolute left-52 w-[100vw] font-bold text-5xl md:text-7xl  self-center justify-self-center"
+            >
+              <span className="text-purple-900 dark:text-green-500 ">
+                Design
+              </span>
+              er
             </span>
           </div>
-          <div className="spacer w-full h-[100vh]"></div>
-        </section>
+          <section>
+            <div className="w-full flex flex-col items-center justify-center gap-y-96">
+              <span className="text-3xl">A Full-Stack Developer</span>
+              <span className="text-3xl">An AI Programmer</span>
+              <span className="text-3xl">A Product Engineer</span>
+              <span className="text-3xl">A Digital Artist</span>
+              <span className="text-3xl text-purple-800 dark:text-green-500">
+                gregoryerrl@gmail.com
+              </span>
+            </div>
+          </section>
+        </div>
       </main>
     </>
   );
