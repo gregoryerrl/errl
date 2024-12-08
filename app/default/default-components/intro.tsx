@@ -18,6 +18,7 @@ export default function Intro() {
         end: "bottom top",
         scrub: true,
         pin: true,
+        markers: true,
         pinnedContainer: ".intro",
       },
     });

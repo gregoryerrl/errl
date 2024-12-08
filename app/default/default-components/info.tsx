@@ -17,15 +17,14 @@ export default function Info() {
   const textTwoRef = useRef(null);
   const textThreeRef = useRef(null);
 
-  const info = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".info",
-      start: "top top",
-      end: "=+100%",
-      scrub: 1,
-      toggleActions: "restart pause reverse pause",
-    },
-  });
+  // const info = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: ".info",
+  //     start: "50% top",
+  //     end: "=+100%",
+  //     scrub: 1,
+  //   },
+  // });
 
   return (
     <>
