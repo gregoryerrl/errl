@@ -54,6 +54,8 @@ export default function Intro() {
     },
   ];
   useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const portfolio = gsap.timeline({
       smoothChildTiming: true,
       scrollTrigger: {
@@ -138,12 +140,6 @@ export default function Intro() {
         immediateRender: false,
       }
     );
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
   });
   return (
     <section className="portfolioTrigger w-screen relative flex justify-center items-center">

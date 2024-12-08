@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import "../default.css";
@@ -10,6 +11,8 @@ export default function Intro() {
   const textThreeRef = useRef(null);
 
   useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const intro = gsap.timeline({
       smoothChildTiming: true,
       scrollTrigger: {
@@ -53,12 +56,6 @@ export default function Intro() {
       { x: 0, opacity: 1 },
       { x: 300, opacity: 0, duration: 4 }
     );
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
   });
 
   return (
