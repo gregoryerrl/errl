@@ -64,7 +64,7 @@ export default function Intro() {
         end: "bottom top",
         scrub: 1,
         pin: true,
-        pinnedContainer: ".portfolioEntrance",
+        pinnedContainer: ".entranceContainer",
         markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
       },
     });
@@ -155,12 +155,14 @@ export default function Intro() {
   });
   return (
     <>
-      <section className="portfolioEntrance w-screen relative flex justify-center items-center overflow-hidden">
-        <div
-          ref={worksScreenRef}
-          className="fixed top-0 w-[100vw] h-screen worksScreen bg-gray-400 dark:bg-slate-900 z-10 flex flex-col items-center justify-center"
-        ></div>
-      </section>
+      <div className="portfolioEntrance w-screen h-[150vh]">
+        <section className="entranceContainer w-screen relative flex justify-center items-center overflow-hidden">
+          <div
+            ref={worksScreenRef}
+            className="fixed top-0 w-[100vw] h-screen worksScreen bg-gray-400 dark:bg-slate-900 z-10 flex flex-col items-center justify-center"
+          ></div>
+        </section>
+      </div>
       <section className="portfolioTrigger w-screen relative flex justify-center items-center bg-gray-400 dark:bg-slate-900 mt-52">
         <div
           ref={worksTextOne}

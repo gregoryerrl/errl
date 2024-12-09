@@ -6,7 +6,6 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import "../default.css";
 import TextPlugin from "gsap/TextPlugin";
-import { text } from "stream/consumers";
 export default function Intro() {
   const textOneRef = useRef(null);
   const textTwoRef = useRef(null);
@@ -79,52 +78,37 @@ export default function Intro() {
 
   return (
     <>
-      <main>
-        <div className="intro w-screen h-[400vh]">
-          <div className="relative introScreen w-screen h-screen flex">
-            <div
-              ref={textOneRef}
-              className="absolute w-full font-bold text-6xl md:text-8xl flex items-center justify-center self-center justify-self-center"
-            >
-              <div className="flex flex-col">
-                <span className="text-lg text-left">Gregory</span>
-                <span>
-                  E
-                  <span className="text-purple-900 dark:text-green-500">r</span>
-                  rl
-                </span>
-                <span className="text-lg text-right">Babela</span>
-              </div>
-            </div>
-
-            <div className="introLine absolute w-1 h-full bg-purple-900 dark:bg-green-500 opacity-30 left-40"></div>
-            <span
-              ref={textTwoRef}
-              className="absolute left-52 w-[100vw] font-bold text-5xl md:text-7xl text-purple-900 dark:text-green-500  self-center justify-self-center"
-            ></span>
-            <span
-              ref={textThreeRef}
-              className="absolute left-52 w-[100vw] font-bold text-5xl md:text-7xl  self-center justify-self-center"
-            >
-              <span className="text-purple-900 dark:text-green-500 ">
-                Design
+      <div className="intro w-screen h-[400vh]">
+        <div className="relative introScreen w-screen h-screen flex">
+          <div
+            ref={textOneRef}
+            className="absolute w-full font-bold text-6xl md:text-8xl flex items-center justify-center self-center justify-self-center"
+          >
+            <div className="flex flex-col">
+              <span className="text-lg text-left">Gregory</span>
+              <span>
+                E<span className="text-purple-900 dark:text-green-500">r</span>
+                rl
               </span>
-              er
-            </span>
+              <span className="text-lg text-right">Babela</span>
+            </div>
           </div>
-          <section>
-            <div className="w-full flex flex-col items-center justify-center gap-y-96">
-              <span className="text-3xl">A Full-Stack Developer</span>
-              <span className="text-3xl">An AI Programmer</span>
-              <span className="text-3xl">A Product Engineer</span>
-              <span className="text-3xl">A Digital Artist</span>
-              <span className="text-3xl text-purple-800 dark:text-green-500">
-                gregoryerrl@gmail.com
-              </span>
-            </div>
-          </section>
+
+          <div className="introLine absolute w-1 h-full bg-purple-900 dark:bg-green-500 opacity-30 left-10 md:left-40"></div>
+          <span
+            ref={textTwoRef}
+            className="absolute left-16 md:left-52 w-[50vw] md:w-[100vw] font-bold text-5xl md:text-7xl text-purple-900 dark:text-green-500  self-center justify-self-center"
+          ></span>
+          <span
+            ref={textThreeRef}
+            className="absolute left-16 md:left-52 w-[100vw] font-bold text-5xl md:text-7xl  self-center justify-self-center"
+          >
+            <span className="text-purple-900 dark:text-green-500 ">Design</span>
+            er
+          </span>
         </div>
-      </main>
+      </div>
+      <div className="w-screen h-[100vh]"></div>
     </>
   );
 }

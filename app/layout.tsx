@@ -39,7 +39,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="flex-grow flex flex-col font-inconsolata max-w-screen">
+          <main className="flex-grow flex flex-col font-inconsolata max-w-screen overflow-x-hidden">
             {children}
           </main>
         </ThemeProvider>

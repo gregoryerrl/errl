@@ -13,6 +13,7 @@ import Link from "next/link";
 import Info from "./default-components/info";
 import Portfolio from "./default-components/portfolio";
 import Intro from "./default-components/intro";
+import Resume from "./default-components/resume";
 
 export default function DefaultPage() {
   const [isHovered, setIsHovered] = useState(true);
@@ -60,26 +61,24 @@ export default function DefaultPage() {
   };
 
   return (
-    <AuroraBackground showRadialGradient={false}>
+    <AuroraBackground showRadialGradient={false} mobile>
       <section
         ref={sectionRef}
         className="relative w-[100vw] min-h-screen font-consolas text-slate-800 dark:text-slate-200"
       >
         <div
-          className="absolute top-2 left-2 min-w-10 min-h-10 hidden md:block"
+          className="absolute top-0 right-10 md:top-2 md:left-6 min-h-10"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
           <ModeToggle
             className={`${
-              isHovered ? "opacity-100" : "opacity-0"
-            } fixed top-2 left-2 transition-all duration-300 z-50`}
+              isHovered ? "opacity-100" : "opacity-100 md:opacity-0"
+            } fixed w-12 transition-all duration-300 z-50 bg-transparent outline-none border-none`}
           />
         </div>
-        <div className="fixed bottom-1 left-1 min-w-10 min-h-10 block md:hidden dark:text-white z-50">
-          <ModeToggle className="dark:bg-slate-900 border-none" />
-        </div>
         <Intro />
+        <Resume />
         <Portfolio />
         <Info />
         <div
