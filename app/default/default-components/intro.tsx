@@ -6,7 +6,6 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import "../default.css";
 import TextPlugin from "gsap/TextPlugin";
-import { text } from "stream/consumers";
 export default function Intro() {
   const textOneRef = useRef(null);
   const textTwoRef = useRef(null);
@@ -41,8 +40,16 @@ export default function Intro() {
         ".introLine",
         {
           height: 0,
+          width: 0,
+          borderRadius: "100%",
         },
-        { height: "100%", duration: 20, ease: "power4.out" }
+        {
+          height: "100%",
+          width: "10px",
+          borderRadius: "0%",
+          duration: 20,
+          ease: "power4.out",
+        }
       )
       .to(textTwoRef.current, {
         duration: 20,
@@ -71,60 +78,47 @@ export default function Intro() {
       .fromTo(
         ".introLine",
         {
-          y: 0,
+          x: -100,
+          width: "10px",
         },
-        { y: "-100%", duration: 20, ease: "power4.out" }
+        { x: 0, width: "20%", duration: 20, ease: "power4.out" }
       );
   });
 
   return (
     <>
-      <main>
-        <div className="intro w-screen h-[400vh]">
-          <div className="relative introScreen w-screen h-screen flex">
-            <div
-              ref={textOneRef}
-              className="absolute w-full font-bold text-6xl md:text-8xl flex items-center justify-center self-center justify-self-center"
-            >
-              <div className="flex flex-col">
-                <span className="text-lg text-left">Gregory</span>
-                <span>
-                  E
-                  <span className="text-purple-900 dark:text-green-500">r</span>
-                  rl
-                </span>
-                <span className="text-lg text-right">Babela</span>
-              </div>
-            </div>
-
-            <div className="introLine absolute w-1 h-full bg-purple-900 dark:bg-green-500 opacity-30 left-40"></div>
-            <span
-              ref={textTwoRef}
-              className="absolute left-52 w-[100vw] font-bold text-5xl md:text-7xl text-purple-900 dark:text-green-500  self-center justify-self-center"
-            ></span>
-            <span
-              ref={textThreeRef}
-              className="absolute left-52 w-[100vw] font-bold text-5xl md:text-7xl  self-center justify-self-center"
-            >
-              <span className="text-purple-900 dark:text-green-500 ">
-                Design
+      <div className="fixed top-0 w-screen h-screen flex items-center justify-center opacity-20 dark:opacity-10">
+        <div className="introLine fixed w-10 h-full bg-foreground"></div>
+      </div>
+      <div className="intro w-screen h-[400vh]">
+        <div className="relative introScreen w-screen h-screen flex">
+          <div
+            ref={textOneRef}
+            className="absolute w-full font-bold text-6xl md:text-8xl flex items-center justify-center self-center justify-self-center"
+          >
+            <div className="flex flex-col">
+              <span className="text-lg text-left">Gregory</span>
+              <span>
+                E<span className="text-purple-900 dark:text-green-500">r</span>
+                rl
               </span>
-              er
-            </span>
+              <span className="text-lg text-right">Babela</span>
+            </div>
           </div>
-          <section>
-            <div className="w-full flex flex-col items-center justify-center gap-y-96">
-              <span className="text-3xl">A Full-Stack Developer</span>
-              <span className="text-3xl">An AI Programmer</span>
-              <span className="text-3xl">A Product Engineer</span>
-              <span className="text-3xl">A Digital Artist</span>
-              <span className="text-3xl text-purple-800 dark:text-green-500">
-                gregoryerrl@gmail.com
-              </span>
-            </div>
-          </section>
+          <span
+            ref={textTwoRef}
+            className="absolute left-24 md:left-52 w-[50vw] md:w-[20vw] font-bold text-5xl md:text-7xl text-purple-900 dark:text-green-500  self-center justify-self-center"
+          ></span>
+          <span
+            ref={textThreeRef}
+            className="absolute left-24 md:left-52 w-[100vw] font-bold text-5xl md:text-7xl  self-center justify-self-center"
+          >
+            <span className="text-purple-900 dark:text-green-500 ">Design</span>
+            er
+          </span>
         </div>
-      </main>
+      </div>
+      <div className="w-screen h-[100vh]"></div>
     </>
   );
 }

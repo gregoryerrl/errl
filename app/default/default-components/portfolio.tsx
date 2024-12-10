@@ -56,19 +56,6 @@ export default function Intro() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const entrance = gsap.timeline({
-      smoothChildTiming: true,
-      scrollTrigger: {
-        trigger: ".portfolioEntrance",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-        pin: true,
-        pinnedContainer: ".portfolioEntrance",
-        markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
-      },
-    });
-
     const portfolio = gsap.timeline({
       smoothChildTiming: true,
       scrollTrigger: {
@@ -80,100 +67,28 @@ export default function Intro() {
       },
     });
 
-    const exit = gsap.timeline({
-      smoothChildTiming: true,
-      scrollTrigger: {
-        trigger: ".portfolioExit",
-        start: "80% top",
-        end: "bottom top",
-        scrub: 1,
-        markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
-      },
-    });
-
-    const viewWidth = window.innerWidth;
-    const viewHeight = window.innerHeight;
-
-    entrance
-      .fromTo(
-        worksScreenRef.current,
-        {
-          x: viewWidth + 100,
-          y: viewHeight + 100,
-          width: "5px",
-          borderRadius: "100%",
-          scale: 3,
-          rotate: -70,
-        },
-        {
-          borderRadius: 0,
-          x: 0,
-          y: 0,
-          duration: 4,
-          stagger: 0.1,
-        }
-      )
-      .to(worksScreenRef.current, {
-        width: "100%",
-        duration: 50,
-      })
-      .to(
-        worksScreenRef.current,
-        {
-          rotate: 0,
-          duration: 25,
-        },
-        ">-50"
-      )
-      .to(
-        worksScreenRef.current,
-        {
-          scale: 1,
-          duration: 30,
-        },
-        ">-5"
-      );
-
     portfolio.fromTo(
       worksTextOne.current,
       { y: "-100%", opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 }
+      { y: 0, opacity: 1 }
     );
-
-    exit.to(worksTextOne.current, {
-      y: "-100%",
-      duration: 1,
-      delay: 3,
-    });
-
-    exit.to(worksScreenRef.current, {
-      borderRadius: "30%",
-      y: "-100%",
-      duration: 4,
-      delay: 5,
-    });
   });
   return (
     <>
-      <section className="portfolioEntrance w-screen relative flex justify-center items-center overflow-hidden">
-        <div
-          ref={worksScreenRef}
-          className="fixed top-0 w-[100vw] h-screen worksScreen bg-gray-400 dark:bg-slate-900 z-10 flex flex-col items-center justify-center"
-        ></div>
-      </section>
-      <section className="portfolioTrigger w-screen relative flex justify-center items-center bg-gray-400 dark:bg-slate-900 mt-52">
+      <div className="w-screen h-[50vh]"></div>
+      <section className="portfolioTrigger w-screen relative flex justify-center items-center  mt-52">
         <div
           ref={worksTextOne}
-          className="fixed top-0 w-[100vw] h-[15vh] z-40 opacity-0"
+          className="fixed top-0 w-[100vw] h-[20vh] z-40 opacity-0"
         >
-          <div className="w-full h-2/3 bg-gray-400 dark:bg-slate-900 flex items-center justify-center">
-            <span className="font-light italic text-3xl lg:text-4xl xl:text-5xl text-center">
+          <div className="w-full h-2/3 flex items-center justify-center bg-background">
+            <span className="font-light italic text-xl lg:text-2xl xl:text-3xl text-center">
               Crafted with passion and dedication
             </span>
           </div>
-          <div className="w-full h-1/3 bg-gradient-to-b from-gray-400 dark:from-slate-900 to-transparent"></div>
+          <div className="w-full h-1/3 bg-gradient-to-b from-background to-transparent"></div>
         </div>
-        <div className="w-[100vw] px-20 md:px-72 mx-auto gap-7 inline-grid grid-cols-1 justify-center z-10">
+        <div className="w-[100vw] px-20 md:px-80 mx-auto gap-7 inline-grid grid-cols-1 justify-center z-10">
           {images.map((image, index) => (
             <Link key={index} href={image.link} target="_blank">
               <Image
