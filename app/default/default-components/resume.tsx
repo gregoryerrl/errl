@@ -151,16 +151,16 @@ export default function Resume() {
   });
   return (
     <>
-      <section>
-        <div className="resume w-full flex flex-col items-center justify-center gap-y-96">
+      <section className="">
+        <div className="resume w-full flex flex-col items-center justify-center gap-y-96 py-5 md:py-0">
           <div className="grid fullstack span">
             <span className="resumeOne"></span>
-            <span className="text-6xl">Full-Stack</span>
+            <span className="text-3xl md:text-6xl">Full-Stack</span>
             <span className="resumeTwo"></span>
           </div>
           <div className="grid ai spanTwo">
             <div className="percent">100</div>
-            <span className="text-3xl border rounded border-slate-600 dark:border-gray-400 p-3">
+            <span className="text-xl md:text-3xl border rounded border-slate-600 dark:border-gray-400 p-3">
               AI & Machine Learning
             </span>
           </div>
@@ -184,7 +184,7 @@ export default function Resume() {
                 spark ? "opacity-100 animate-pulse" : "opacity-0 animate-none"
               } absolute spark z-10 w-3 h-3 bg-yellow-300 -top-14 left-36 rounded-full duration-75`}
             ></div>
-            <span className="text-3xl z-20 bg-gray-400 dark:bg-slate-900 p-3 rounded border">
+            <span className="text-xl md:text-3xl z-20 bg-gray-400 dark:bg-slate-900 p-3 rounded border">
               Electronics Engineer
             </span>
           </div>
@@ -197,8 +197,10 @@ export default function Resume() {
                 height={100}
               />
             </div>
-            <span className="text-3xl z-10">DevOps and Cloud Services</span>
-            <div className="absolute load bg-green-400 dark:bg-green-900 p-3 rounded border w-full h-full"></div>
+            <span className="text-xl md:text-3xl z-10 text-foreground">
+              DevOps and Cloud Services
+            </span>
+            <div className="absolute load bg-green-800 p-3 rounded w-full h-full"></div>
           </div>
         </div>
       </section>

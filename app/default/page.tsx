@@ -14,6 +14,7 @@ import Info from "./default-components/info";
 import Portfolio from "./default-components/portfolio";
 import Intro from "./default-components/intro";
 import Resume from "./default-components/resume";
+import { useGSAP } from "@gsap/react";
 
 export default function DefaultPage() {
   const [isHovered, setIsHovered] = useState(true);
@@ -63,7 +64,7 @@ export default function DefaultPage() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-[100vw] min-h-screen font-consolas text-slate-800 dark:text-slate-200"
+      className="relative w-[100vw] min-h-screen font-consolas text-slate-800 dark:text-slate-200 bg-background"
     >
       <div
         className="absolute top-0 right-10 md:top-2 md:left-6 min-h-10"

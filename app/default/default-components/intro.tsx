@@ -40,8 +40,16 @@ export default function Intro() {
         ".introLine",
         {
           height: 0,
+          width: 0,
+          borderRadius: "100%",
         },
-        { height: "100%", duration: 20, ease: "power4.out" }
+        {
+          height: "100%",
+          width: "10px",
+          borderRadius: "0%",
+          duration: 20,
+          ease: "power4.out",
+        }
       )
       .to(textTwoRef.current, {
         duration: 20,
@@ -70,14 +78,18 @@ export default function Intro() {
       .fromTo(
         ".introLine",
         {
-          y: 0,
+          x: -100,
+          width: "10px",
         },
-        { y: "-100%", duration: 20, ease: "power4.out" }
+        { x: 0, width: "20%", duration: 20, ease: "power4.out" }
       );
   });
 
   return (
     <>
+      <div className="fixed top-0 w-screen h-screen flex items-center justify-center opacity-20 dark:opacity-10">
+        <div className="introLine fixed w-10 h-full bg-foreground"></div>
+      </div>
       <div className="intro w-screen h-[400vh]">
         <div className="relative introScreen w-screen h-screen flex">
           <div
@@ -93,15 +105,13 @@ export default function Intro() {
               <span className="text-lg text-right">Babela</span>
             </div>
           </div>
-
-          <div className="introLine absolute w-1 h-full bg-purple-900 dark:bg-green-500 opacity-30 left-10 md:left-40"></div>
           <span
             ref={textTwoRef}
-            className="absolute left-16 md:left-52 w-[50vw] md:w-[100vw] font-bold text-5xl md:text-7xl text-purple-900 dark:text-green-500  self-center justify-self-center"
+            className="absolute left-24 md:left-52 w-[50vw] md:w-[20vw] font-bold text-5xl md:text-7xl text-purple-900 dark:text-green-500  self-center justify-self-center"
           ></span>
           <span
             ref={textThreeRef}
-            className="absolute left-16 md:left-52 w-[100vw] font-bold text-5xl md:text-7xl  self-center justify-self-center"
+            className="absolute left-24 md:left-52 w-[100vw] font-bold text-5xl md:text-7xl  self-center justify-self-center"
           >
             <span className="text-purple-900 dark:text-green-500 ">Design</span>
             er
