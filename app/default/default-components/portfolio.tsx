@@ -70,7 +70,7 @@ export default function Intro() {
     portfolio.fromTo(
       worksTextOne.current,
       { y: "-100%", opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 }
+      { y: 0, opacity: 1 }
     );
   });
   return (
