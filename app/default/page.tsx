@@ -61,36 +61,34 @@ export default function DefaultPage() {
   };
 
   return (
-    <AuroraBackground showRadialGradient={false} mobile>
-      <section
-        ref={sectionRef}
-        className="relative w-[100vw] min-h-screen font-consolas text-slate-800 dark:text-slate-200"
+    <section
+      ref={sectionRef}
+      className="relative w-[100vw] min-h-screen font-consolas text-slate-800 dark:text-slate-200"
+    >
+      <div
+        className="absolute top-0 right-10 md:top-2 md:left-6 min-h-10"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        <div
-          className="absolute top-0 right-10 md:top-2 md:left-6 min-h-10"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <ModeToggle
-            className={`${
-              isHovered ? "opacity-100" : "opacity-100 md:opacity-0"
-            } fixed w-12 transition-all duration-300 z-50 bg-transparent outline-none border-none`}
-          />
-        </div>
-        <Intro />
-        <Resume />
-        <Portfolio />
-        <Info />
-        <div
-          className={`fixed flex flex-col bottom-1 min-w-10 min-h-10 dark:text-white animate-bounce w-[100vw] items-center justify-center z-50`}
-        >
-          <ChevronDown
-            className={`${
-              isEnded || isStopped ? "opacity-0" : "opacity-100"
-            } transition-opacity duration-200 w-12 h-12`}
-          />
-        </div>
-      </section>
-    </AuroraBackground>
+        <ModeToggle
+          className={`${
+            isHovered ? "opacity-100" : "opacity-100 md:opacity-0"
+          } fixed w-12 transition-all duration-300 z-50 bg-transparent outline-none border-none`}
+        />
+      </div>
+      <Intro />
+      <Resume />
+      <Portfolio />
+      <Info />
+      <div
+        className={`fixed flex flex-col bottom-1 min-w-10 min-h-10 dark:text-white animate-bounce w-[100vw] items-center justify-center z-50`}
+      >
+        <ChevronDown
+          className={`${
+            isEnded || isStopped ? "opacity-0" : "opacity-100"
+          } transition-opacity duration-200 w-12 h-12`}
+        />
+      </div>
+    </section>
   );
 }
