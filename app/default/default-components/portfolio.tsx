@@ -62,7 +62,7 @@ export default function Intro() {
         trigger: ".portfolioTrigger",
         start: "top 75%",
         end: "top 25%",
-        scrub: 1,
+        scrub: true,
         markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
       },
     });
@@ -77,10 +77,7 @@ export default function Intro() {
     <>
       <div className="w-screen h-[50vh]"></div>
       <section className="portfolioTrigger w-screen relative flex justify-center items-center  mt-52">
-        <div
-          ref={worksTextOne}
-          className="fixed top-0 w-[100vw] h-[20vh] z-40 opacity-0"
-        >
+        <div ref={worksTextOne} className="fixed top-0 w-[100vw] h-[20vh] z-40">
           <div className="w-full h-2/3 flex items-center justify-center bg-background">
             <span className="font-light italic text-xl lg:text-2xl xl:text-3xl text-center">
               Crafted with passion and dedication
