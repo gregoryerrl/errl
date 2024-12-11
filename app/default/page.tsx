@@ -6,8 +6,11 @@ import { gsap } from "gsap";
 import Lenis from "lenis";
 import { ChevronDown } from "lucide-react";
 import "./default.css";
+
 import { usePreloader } from "./usePreloader";
-import LoadingScreen from "./LoadingPage";
+
+import dynamic from "next/dynamic";
+const LoadingScreen = dynamic(() => import("./LoadingPage"), { ssr: false });
 
 // Lazy load components
 const Info = lazy(() => import("./default-components/info"));
