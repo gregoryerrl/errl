@@ -65,6 +65,19 @@ export default function Intro() {
         scrub: true,
         markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
       },
+      onComplete: () => {
+        gsap.to(worksTextOne.current, {
+          y: "-100%",
+          opacity: 0,
+          scrollTrigger: {
+            trigger: ".portfolioExit",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+            markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
+          },
+        });
+      },
     });
 
     portfolio.fromTo(
@@ -101,6 +114,7 @@ export default function Intro() {
           ))}
         </div>
       </section>
+      <div className="w-screen h-[100vh] portfolioExit"></div>
     </>
   );
 }

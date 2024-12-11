@@ -173,6 +173,16 @@ export default function Resume() {
             markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
           },
         });
+        gsap.to(".introLine", {
+          height: 0,
+          scrollTrigger: {
+            trigger: ".space",
+            start: "center center",
+            end: "center center",
+            scrub: true,
+            markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
+          },
+        });
       },
     });
 
