@@ -65,6 +65,19 @@ export default function Intro() {
         scrub: true,
         markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
       },
+      onComplete: () => {
+        gsap.to(worksTextOne.current, {
+          y: "-100%",
+          opacity: 0,
+          scrollTrigger: {
+            trigger: ".portfolioExit",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+            markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
+          },
+        });
+      },
     });
 
     portfolio.fromTo(
@@ -75,7 +88,7 @@ export default function Intro() {
   });
   return (
     <>
-      <div className="w-screen h-[50vh]"></div>
+      <div className="w-screen h-[100vh]"></div>
       <section className="portfolioTrigger w-screen relative flex justify-center items-center  mt-52">
         <div ref={worksTextOne} className="fixed top-0 w-[100vw] h-[20vh] z-40">
           <div className="w-full h-2/3 flex items-center justify-center bg-background">
@@ -101,6 +114,7 @@ export default function Intro() {
           ))}
         </div>
       </section>
+      <div className="w-screen h-[100vh] portfolioExit"></div>
     </>
   );
 }
