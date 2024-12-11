@@ -75,7 +75,7 @@ export default function Intro() {
   });
   return (
     <>
-      <div className="w-screen h-[50vh]"></div>
+      <div className="w-screen h-[100vh]"></div>
       <section className="portfolioTrigger w-screen relative flex justify-center items-center  mt-52">
         <div ref={worksTextOne} className="fixed top-0 w-[100vw] h-[20vh] z-40">
           <div className="w-full h-2/3 flex items-center justify-center bg-background">

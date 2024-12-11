@@ -9,6 +9,9 @@ import pcb from "./pcb-board.png";
 import cloud from "./server.png";
 import Image from "next/image";
 
+import bottom from "./bottom.jpg";
+import top from "./top.jpg";
+
 export default function Resume() {
   const [spark, setSpark] = useState(false);
   useGSAP(() => {
@@ -148,11 +151,55 @@ export default function Resume() {
         scrub: true,
       },
     });
+
+    gsap.from(".space", {
+      opacity: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".space",
+        start: "top top",
+        end: "20% bottom",
+        scrub: true,
+      },
+      onComplete: () => {
+        gsap.to(".space", {
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".space",
+            start: "90% bottom",
+            end: "bottom bottom",
+            scrub: true,
+            markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
+          },
+        });
+      },
+    });
+
+    gsap.from(".blayer", {
+      yPercent: 50,
+      scrollTrigger: {
+        trigger: ".space",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    });
+
+    gsap.from(".tlayer", {
+      yPercent: -50,
+      scrollTrigger: {
+        trigger: ".space",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    });
   });
   return (
     <>
       <section className="">
-        <div className="resume w-full flex flex-col items-center justify-center gap-y-96 py-5 md:py-0">
+        <div className="resume w-full flex flex-col items-center justify-center gap-y-96">
           <div className="grid fullstack span">
             <span className="resumeOne"></span>
             <span className="text-3xl md:text-6xl">Full-Stack</span>
@@ -182,7 +229,7 @@ export default function Resume() {
             <div
               className={`${
                 spark ? "opacity-100 animate-pulse" : "opacity-0 animate-none"
-              } absolute spark z-10 w-3 h-3 bg-yellow-300 -top-14 left-36 rounded-full duration-75`}
+              } absolute spark z-10 w-3 h-3 bg-yellow-300 -top-14 left-24 -translate-x-3 md:-translate-x-1/3 -translate-y-1/2 md:translate-y-1/4 md:left-36 rounded-full duration-75`}
             ></div>
             <span className="text-xl md:text-3xl z-20 bg-gray-400 dark:bg-slate-900 p-3 rounded border">
               Electronics Engineer
@@ -200,8 +247,68 @@ export default function Resume() {
             <span className="text-xl md:text-3xl z-10 text-foreground">
               DevOps and Cloud Services
             </span>
-            <div className="absolute load bg-green-800 p-3 rounded w-full h-full"></div>
+            <div className="absolute load bg-green-800 p-3 rounded w-80 md:w-full h-full"></div>
           </div>
+        </div>
+        <div className="h-[100vh]"></div>
+        <div className="h-[600vh] relative space">
+          <div className="z-20 text-white relative">
+            <div className="h-[100vh] text-6xl"></div>
+            <div className="h-[100vh] text-6xl"></div>
+            <div className="h-[100vh] grid grid-cols-2">
+              <div className="flex flex-col items-end justify-center">
+                <span className="text-xl md:text-3xl w-2/3 md:w-1/2">
+                  Freelance and Client Projects
+                </span>
+                <span className="text-green-500 text-left w-2/3 md:w-1/2">
+                  2023-Current
+                </span>
+              </div>
+              <div className="flex flex-col items-start justify-center p-2 md:p-5 w-full md:w-1/2">
+                <span>
+                  Developed and delivered numerous projects using various
+                  languages and frameworks depending on the client&apos;s needs
+                </span>
+              </div>
+            </div>
+            <div className="h-[100vh] grid grid-cols-2">
+              <div className="flex flex-col items-end justify-center">
+                <span className="text-xl md:text-3xl w-2/3 md:w-1/2">
+                  Startups and Hackathons
+                </span>
+              </div>
+              <div className="flex flex-col items-start justify-center p-2 md:p-5 w-full md:w-1/2">
+                <span>Joined various startups and competed in hackatons.</span>
+              </div>
+            </div>
+            <div className="h-[100vh] grid grid-cols-2">
+              <div className="flex flex-col items-end justify-center">
+                <span className="text-xl md:text-3xl w-4/5 md:w-1/2">
+                  Internships and Certification Workshops
+                </span>
+                <span className="text-green-500 text-left w-4/5 md:w-1/2">
+                  2022-2023
+                </span>
+              </div>
+              <div className="flex flex-col items-start justify-center p-2 md:p-5 w-full md:w-1/2">
+                <span>
+                  Passed certification exams [Huawei, Azure] and completed
+                  internships as a student.
+                </span>
+              </div>
+            </div>
+            <div className="h-[100vh] resumeExit"></div>
+          </div>
+          <Image
+            src={bottom}
+            alt="Picture of the author"
+            className="blayer absolute -top-96 object-cover opacity-50 h-full w-auto z-10 scale-150"
+          />
+          <Image
+            src={top}
+            alt="Picture of the author"
+            className="tlayer absolute top-52 object-cover h-full w-auto"
+          />
         </div>
       </section>
     </>
