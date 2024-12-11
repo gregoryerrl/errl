@@ -1,30 +1,36 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import { AuroraBackground } from "@/app/root-components/aurora-background";
+
+import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { ModeToggle } from "../root-components/ModeToggle";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { ChevronDown } from "lucide-react";
 import "./default.css";
-import Image from "next/image";
-import { link } from "fs";
-import Link from "next/link";
-import Info from "./default-components/info";
-import Portfolio from "./default-components/portfolio";
-import Intro from "./default-components/intro";
-import Resume from "./default-components/resume";
-import { useGSAP } from "@gsap/react";
+import { usePreloader } from "./usePreloader";
+import LoadingScreen from "./LoadingPage";
+
+// Lazy load components
+const Info = lazy(() => import("./default-components/info"));
+const Portfolio = lazy(() => import("./default-components/portfolio"));
+const Intro = lazy(() => import("./default-components/intro"));
+const Resume = lazy(() => import("./default-components/resume"));
+
+// Component modules for preloading
+const componentModules = [
+  () => import("./default-components/info"),
+  () => import("./default-components/portfolio"),
+  () => import("./default-components/intro"),
+  () => import("./default-components/resume"),
+];
 
 export default function DefaultPage() {
   const [isHovered, setIsHovered] = useState(true);
   const [isEnded, setIsEnded] = useState(false);
   const [isStopped, setIsStopped] = useState(false);
   const sectionRef = useRef(null);
-  const textOneRef = useRef(null);
-  const textTwoRef = useRef(null);
-  const textThreeRef = useRef(null);
-  const worksImagesRef = useRef(null);
+
+  // Preload components
+  const isLoading = usePreloader(componentModules);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,13 +59,15 @@ export default function DefaultPage() {
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    console.log("Hovered");
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    console.log("Not Hovered");
   };
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <section
@@ -77,10 +85,12 @@ export default function DefaultPage() {
           } fixed w-12 transition-all duration-300 z-50 bg-transparent outline-none border-none`}
         />
       </div>
-      <Intro />
-      <Resume />
-      <Portfolio />
-      <Info />
+      <Suspense fallback={<LoadingScreen />}>
+        <Intro />
+        <Resume />
+        <Portfolio />
+        <Info />
+      </Suspense>
       <div
         className={`fixed flex flex-col bottom-1 min-w-10 min-h-10 dark:text-white animate-bounce w-[100vw] items-center justify-center z-50`}
       >
