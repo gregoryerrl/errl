@@ -222,13 +222,19 @@ export default function Resume() {
             </span>
           </div>
           <div className="relative electronics flex flex-col items-center justify-center">
-            <Image
-              src={iron}
-              alt="Picture of the author"
-              width={100}
-              height={100}
-              className="absolute iron -translate-y-32 -translate-x-20 z-10"
-            />
+            <div className="absolute iron -translate-y-32 -translate-x-20 z-10">
+              <Image
+                src={iron}
+                alt="Picture of the author"
+                width={100}
+                height={100}
+              />
+              <div
+                className={`${
+                  spark ? "opacity-100 animate-pulse" : "opacity-0 animate-none"
+                } absolute -bottom-1 -right-1 w-3 h-3 bg-yellow-300 rounded-full duration-75`}
+              ></div>
+            </div>
             <Image
               src={pcb}
               alt="Picture of the author"
@@ -236,11 +242,7 @@ export default function Resume() {
               height={100}
               className="absolute pcb -translate-y-1/2"
             />
-            <div
-              className={`${
-                spark ? "opacity-100 animate-pulse" : "opacity-0 animate-none"
-              } absolute spark z-10 w-3 h-3 bg-yellow-300 -top-14 left-24 -translate-x-3 md:-translate-x-1/3 -translate-y-1/2 md:translate-y-1/4 md:left-36 rounded-full duration-75`}
-            ></div>
+
             <span className="text-xl md:text-3xl z-20 bg-gray-400 dark:bg-slate-900 p-3 rounded border">
               Electronics Engineer
             </span>
