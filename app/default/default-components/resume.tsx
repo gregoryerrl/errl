@@ -268,7 +268,7 @@ export default function Resume() {
             <div className="h-[100vh] text-6xl"></div>
             <div className="h-[100vh] text-6xl"></div>
             <div className="h-[100vh] grid grid-cols-2">
-              <div className="flex flex-col items-end justify-center">
+              <div className="flex flex-col items-center md:items-end justify-center">
                 <span className="text-xl md:text-3xl w-2/3 md:w-1/2">
                   Freelance and Client Projects
                 </span>
@@ -284,7 +284,7 @@ export default function Resume() {
               </div>
             </div>
             <div className="h-[100vh] grid grid-cols-2">
-              <div className="flex flex-col items-end justify-center">
+              <div className="flex flex-col items-center md:items-end justify-center">
                 <span className="text-xl md:text-3xl w-2/3 md:w-1/2">
                   Startups and Hackathons
                 </span>
@@ -294,7 +294,7 @@ export default function Resume() {
               </div>
             </div>
             <div className="h-[100vh] grid grid-cols-2">
-              <div className="flex flex-col items-end justify-center">
+              <div className="flex flex-col items-center md:items-end justify-center">
                 <span className="text-xl md:text-3xl w-4/5 md:w-1/2">
                   Internships and Certification Workshops
                 </span>
