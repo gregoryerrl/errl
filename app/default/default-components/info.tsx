@@ -87,7 +87,7 @@ export default function Info() {
                   className="flex items-center space-x-2 hover:text-primary"
                 >
                   <FaEnvelope className="text-xl" />
-                  <span className="text-sm">gregoryerrl@example.com</span>
+                  <span className="text-sm">gregoryerrl@gmail.com</span>
                 </a>
               </div>
 
