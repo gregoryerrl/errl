@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Inconsolata, Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/app/root-components/shadcn/theme-provider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const inconsolata = Inconsolata({
