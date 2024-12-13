@@ -174,7 +174,7 @@ const Resume: React.FC = () => {
               title="Web Development"
               icon={Code}
               skills={[
-                "AngularJS / ReactJS / NextJS",
+                "AngularJS / ReactJS / NextJS / VueJS",
                 "HTML / CSS / TypeScript",
                 "WordPress / NodeJS / SQL",
                 "PHP / Laravel / C#",
