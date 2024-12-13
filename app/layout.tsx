@@ -43,6 +43,8 @@ export default function RootLayout({
         >
           <main className="flex-grow flex flex-col font-inconsolata max-w-screen overflow-x-hidden">
             {children}
+            <SpeedInsights />
+            <Analytics />
           </main>
         </ThemeProvider>
       </body>
