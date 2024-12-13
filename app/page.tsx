@@ -148,7 +148,10 @@ export default function Home() {
               className="flex items-center justify-center w-full"
             >
               <div className="relative flex flex-col items-center justify-center">
-                <Pointer className="animate-bounce absolute -bottom-20  w-10 h-10 opacity-40 dark:opacity-10" />
+                <div className="flex flex-col items-center justify-center animate-bounce absolute -bottom-24 opacity-40 dark:opacity-10">
+                  <Pointer className="w-10 h-10" />
+                  <span className="font-bold">Click Me</span>
+                </div>
                 <Link
                   href={"/default"}
                   prefetch={true}
