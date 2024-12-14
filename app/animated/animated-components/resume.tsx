@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import "../default.css";
+import "../animated.css";
 import TextPlugin from "gsap/TextPlugin";
 import iron from "./soldering-iron.png";
 import pcb from "./pcb-board.png";

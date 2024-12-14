@@ -2,6 +2,7 @@ const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
+import { Inconsolata } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config = {
@@ -16,6 +17,8 @@ const config = {
   theme: {
     fontFamily: {
       consolas: ["consolas"],
+      inconsolata: ["var(--font-inconsolata)", "system-ui", "sans-serif"],
+      inter: ["var(--font-inter)", "system-ui", "sans-serif"],
       pixelify: ["var(--font-pixelify-sans)", "system-ui", "sans-serif"],
       tiny5: ["Tiny5", "system-ui", "sans-serif"],
     },

@@ -11,7 +11,7 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "@/app/components/shadcn/",
+    "components": "@/app/root-components/shadcn/ui/",
     "utils": "@/lib/utils"
   }
 }

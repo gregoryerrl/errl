@@ -11,9 +11,32 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/app/root-components/shadcn/ui/dropdown-menu";
+import { Switch } from "@/app/root-components/shadcn/ui/switch";
 
-export function ModeToggle({ className }: { className?: string } = {}) {
-  const { setTheme } = useTheme();
+export function ModeToggle({
+  className,
+  switch: useSwitch = false,
+}: {
+  className?: string;
+  switch?: boolean;
+} = {}) {
+  const { theme, setTheme } = useTheme();
+
+  if (useSwitch) {
+    return (
+      <Switch
+        checked={theme === "dark"}
+        onCheckedChange={(checked: boolean) =>
+          setTheme(checked ? "dark" : "light")
+        }
+        className={`${className}`}
+      >
+        <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+        <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+        <span className="sr-only">Toggle theme</span>
+      </Switch>
+    );
+  }
 
   return (
     <DropdownMenu>

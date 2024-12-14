@@ -7,7 +7,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { ChevronDown } from "lucide-react";
-import "../default.css";
+import "../animated.css";
 import Image from "next/image";
 import { link } from "fs";
 import Link from "next/link";

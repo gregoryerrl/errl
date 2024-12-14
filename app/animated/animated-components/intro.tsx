@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import "../default.css";
+import "../animated.css";
 import TextPlugin from "gsap/TextPlugin";
 export default function Intro() {
   const textOneRef = useRef(null);
