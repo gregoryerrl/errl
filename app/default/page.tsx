@@ -15,6 +15,7 @@ import {
 } from "@/app/root-components/shadcn/ui/accordion";
 import Projects from "./default-components/Projects";
 import Info from "./default-components/info";
+import LayoutDemo from "./default-components/LayoutDemo";
 
 export default function DefaultPage() {
   const [isLoading, setIsLoading] = useState(true);

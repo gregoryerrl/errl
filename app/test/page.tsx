@@ -1,10 +1,16 @@
 import React from "react";
 import Flashlight from "./FlashlightComponent";
+import LayoutDemo from "../default/default-components/LayoutDemo";
 
 export default function Test() {
   return (
-    <div className="w-screen h-[200vh]">
-      <Flashlight className="w-1/2 h-1/2" />
-    </div>
+    <>
+      <section className="font-inter">
+        <LayoutDemo />
+      </section>
+      <section className="font-inter">
+        <LayoutDemo />
+      </section>
+    </>
   );
 }
