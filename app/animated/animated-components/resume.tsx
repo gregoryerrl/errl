@@ -24,7 +24,6 @@ export default function Resume() {
         start: "top bottom",
         end: "bottom top",
         scrub: true,
-        markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
       },
     });
 
@@ -53,7 +52,6 @@ export default function Resume() {
       scrollTrigger: {
         trigger: ".spanTwo",
         start: "center 75%",
-        markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
       },
       snap: {
         innerText: 1,
@@ -170,7 +168,6 @@ export default function Resume() {
             start: "90% bottom",
             end: "bottom bottom",
             scrub: true,
-            markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
           },
         });
         gsap.to(".introLine", {
@@ -180,7 +177,6 @@ export default function Resume() {
             start: "center center",
             end: "center center",
             scrub: true,
-            markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
           },
         });
       },
@@ -262,11 +258,12 @@ export default function Resume() {
             <div className="absolute load bg-green-800 p-3 rounded w-80 md:w-full h-full"></div>
           </div>
         </div>
-        <div className="h-[100vh]"></div>
-        <div className="h-[600vh] relative space">
+        {/* Height must equal the sum of its children, or the surplus becomes blank
+            tail scroll. It is also the scrub distance for the blayer/tlayer
+            parallax and the .space opacity fades, whose trigger points are
+            element-relative percentages, so they scale with it. */}
+        <div className="h-[300vh] relative space">
           <div className="z-20 text-white relative">
-            <div className="h-[100vh] text-6xl"></div>
-            <div className="h-[100vh] text-6xl"></div>
             <div className="h-[100vh] grid grid-cols-2">
               <div className="flex flex-col items-center md:items-end justify-center">
                 <span className="text-xl md:text-3xl w-2/3 md:w-1/2">
@@ -309,7 +306,6 @@ export default function Resume() {
                 </span>
               </div>
             </div>
-            <div className="h-[100vh] resumeExit"></div>
           </div>
           <Image
             src={bottom}

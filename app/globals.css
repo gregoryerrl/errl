@@ -98,8 +98,14 @@ body {
   will-change: transform, opacity;
 }
 
-/* Additional styles for smooth scrolling */
-html {
+/* Smooth scrolling for anchor jumps — but NOT on routes where Lenis is running.
+   Lenis scrolls by calling window.scrollTo() every frame; with scroll-behavior:
+   smooth the browser animates each of those calls over ~400ms, so every frame
+   retargets an animation that never lands. Measured effect: Lenis's per-frame
+   step collapsed from the expected ~4.7% of the remaining gap to 0.05%, making
+   the page take 812 wheel notches to travel what should take 59.
+   Lenis adds the `lenis` class to <html> while active, so this defers to it. */
+html:not(.lenis) {
   scroll-behavior: smooth;
 }
 

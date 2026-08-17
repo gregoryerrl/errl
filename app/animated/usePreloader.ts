@@ -14,6 +14,9 @@ export function usePreloader(componentModules: ComponentModule[]) {
         console.error("Error preloading components:", error);
         setIsLoading(false);
       });
+    // Preload is a mount-once effect. Callers pass a module-scope constant array,
+    // so re-running on identity change would only risk a loop, never new work.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return isLoading;

@@ -19,11 +19,15 @@ export default function Intro() {
       scrollTrigger: {
         trigger: ".intro",
         start: "top top",
-        end: "bottom top",
+        // Explicit pin duration. Previously `.intro` was h-[400vh] with
+        // end:"bottom top", which made ScrollTrigger's pin-spacer 8 screens tall
+        // (element height + pin duration) while the timeline finished at screen 4
+        // — the remaining 4 screens were the completed, fully-faded intro
+        // scrolling past. Keeping the element at one viewport and stating the pin
+        // length here makes the animation and the pin the same length.
+        end: "+=300%",
         scrub: true,
         pin: true,
-        markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
-        pinnedContainer: ".introScreen",
       },
     });
 
@@ -90,7 +94,7 @@ export default function Intro() {
       <div className="fixed top-0 w-screen h-screen flex items-center justify-center opacity-20 dark:opacity-10">
         <div className="introLine fixed w-10 h-full bg-foreground"></div>
       </div>
-      <div className="intro w-screen h-[400vh]">
+      <div className="intro w-screen h-screen">
         <div className="relative introScreen w-screen h-screen flex">
           <div
             ref={textOneRef}
@@ -118,7 +122,6 @@ export default function Intro() {
           </span>
         </div>
       </div>
-      <div className="w-screen h-[100vh]"></div>
     </>
   );
 }

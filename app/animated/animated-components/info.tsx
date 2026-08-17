@@ -1,28 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import { Button } from "@/app/root-components/shadcn/ui/button";
-import { Textarea } from "@/app/root-components/shadcn/ui/textarea";
-import { Input } from "@/app/root-components/shadcn/ui/input";
 import { Card, CardContent } from "@/app/root-components/shadcn/ui/card";
 import Link from "next/link";
 import { Download } from "lucide-react";
 import ContactForm from "@/app/simple-rpg/rpg-components/ContactForm";
 
 export default function Info() {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically send the email, for example using an API route
-    console.log("Sending email:", email, message);
-    // Reset form
-    setEmail("");
-    setMessage("");
-  };
-
   const technologies = [
     "NextJS",
     "GSAP",

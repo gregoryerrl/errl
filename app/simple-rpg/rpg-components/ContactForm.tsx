@@ -14,14 +14,9 @@ const ContactForm = () => {
         e.currentTarget,
         "UbpnjNBGy_J4Srl1_"
       )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+      .then(undefined, (error) => {
+        console.error("Contact form send failed:", error?.text ?? error);
+      });
   };
 
   return (

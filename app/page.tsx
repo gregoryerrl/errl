@@ -1,13 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  ArrowBigDown,
-  ChevronRight,
-  MousePointer2,
-  Pointer,
-} from "lucide-react";
-import { useEffect, useState } from "react";
+import { ChevronRight, Pointer } from "lucide-react";
+import { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -19,17 +14,14 @@ import { ModeToggle } from "./root-components/ModeToggle";
 import light from "./e-light.png";
 import dark from "./e-dark.png";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { AuroraBackground } from "@/app/root-components/aurora-background";
 
 export default function Home() {
   const [mode, setMode] = useState("Default");
   const [isHovered, setIsHovered] = useState(true);
-  const router = useRouter();
 
   const handleModeChange = (newMode: string) => {
     setMode(newMode);
-    console.log(newMode);
   };
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -44,12 +36,10 @@ export default function Home() {
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    console.log("Hovered");
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    console.log("Not Hovered");
   };
 
   const itemVariants = {
@@ -105,6 +95,7 @@ export default function Home() {
                 >
                   <SelectItem value="Default">Default</SelectItem>
                   <SelectItem value="Simple RPG">Simple RPG</SelectItem>
+                  <SelectItem value="Animated">Animated</SelectItem>
                 </div>
               </SelectContent>
             </Select>
@@ -123,6 +114,7 @@ export default function Home() {
                 <div>
                   <SelectItem value="Default">Default</SelectItem>
                   <SelectItem value="Simple RPG">Simple RPG</SelectItem>
+                  <SelectItem value="Animated">Animated</SelectItem>
                 </div>
               </SelectContent>
             </Select>
@@ -227,6 +219,24 @@ export default function Home() {
               </div>
             </motion.div>
           </>
+        )}
+        {mode === "Animated" && (
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col items-center justify-center w-full gap-6 text-center"
+          >
+            <p className="text-xl md:text-2xl font-light italic">
+              A scroll-driven take on the portfolio.
+            </p>
+            <Link
+              href={"/animated"}
+              prefetch={true}
+              className="group flex items-center gap-2 border border-foreground/40 rounded px-6 py-3 hover:scale-110 transition-all duration-300"
+            >
+              <span className="text-lg font-semibold">Enter</span>
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
+          </motion.div>
         )}
       </motion.div>
     </AuroraBackground>

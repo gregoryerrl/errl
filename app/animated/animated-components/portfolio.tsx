@@ -5,11 +5,9 @@ import { AuroraBackground } from "@/app/root-components/aurora-background";
 import { ModeToggle } from "@/app//root-components/ModeToggle";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
 import { ChevronDown } from "lucide-react";
 import "../animated.css";
 import Image from "next/image";
-import { link } from "fs";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 export default function Intro() {
@@ -63,7 +61,6 @@ export default function Intro() {
         start: "top 75%",
         end: "top 25%",
         scrub: true,
-        markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
       },
       onComplete: () => {
         gsap.to(worksTextOne.current, {
@@ -74,7 +71,6 @@ export default function Intro() {
             start: "top top",
             end: "bottom top",
             scrub: true,
-            markers: !(process.env.NEXT_PUBLIC_VERCEL_ENV === "production"),
           },
         });
       },
@@ -88,8 +84,7 @@ export default function Intro() {
   });
   return (
     <>
-      <div className="w-screen h-[100vh]"></div>
-      <section className="portfolioTrigger w-screen relative flex justify-center items-center  mt-52">
+      <section className="portfolioTrigger w-screen relative flex justify-center items-center mt-52">
         <div ref={worksTextOne} className="fixed top-0 w-[100vw] h-[20vh] z-40">
           <div className="w-full h-2/3 flex items-center justify-center bg-background">
             <span className="font-light italic text-xl lg:text-2xl xl:text-3xl text-center">

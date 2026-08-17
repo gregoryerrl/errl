@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { ModeToggle } from "../root-components/ModeToggle";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { ChevronDown } from "lucide-react";
 import "./animated.css";
@@ -38,8 +39,8 @@ export default function DefaultPage() {
   useEffect(() => {
     const handleScroll = () => {
       const bottom =
-        window.scrollY + window.innerHeight ===
-        document.documentElement.scrollHeight;
+        window.scrollY + window.innerHeight >=
+        document.documentElement.scrollHeight - 2;
       setIsEnded(bottom);
     };
     window.addEventListener("scroll", handleScroll);
@@ -47,17 +48,47 @@ export default function DefaultPage() {
   }, []);
 
   useEffect(() => {
-    const lenis = new Lenis({
-      autoRaf: true,
-    });
-    lenis.on("scroll", (e) => {
-      setIsStopped(!!e);
-      let timer: number | null = null;
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Diagnostics hook: only with ?audit in the URL, so it never reaches normal
+    // visitors. Lets scripts/scroll-audit.js introspect triggers from the console.
+    const auditing = new URLSearchParams(window.location.search).has("audit");
+    if (auditing) {
+      (window as unknown as Record<string, unknown>).gsap = gsap;
+      (window as unknown as Record<string, unknown>).ScrollTrigger = ScrollTrigger;
+    }
+
+    // Lenis must feed ScrollTrigger and be driven BY gsap's ticker. With autoRaf
+    // the two run independent RAF loops, so scrubbed animations update out of
+    // phase with the smoothed scroll position and the page feels heavy.
+    const lenis = new Lenis({ autoRaf: false });
+    let timer: number | null = null;
+
+    // Exposed only under ?audit so scroll feel can be A/B'd live without a rebuild:
+    //   __lenis.destroy()          -> native scroll, no smoothing
+    //   __lenis.options.lerp = 0.2 -> snappier response
+    if (auditing) {
+      (window as unknown as Record<string, unknown>).__lenis = lenis;
+    }
+
+    lenis.on("scroll", ScrollTrigger.update);
+    lenis.on("scroll", () => {
+      setIsStopped(true);
       if (timer) clearTimeout(timer);
       timer = window.setTimeout(() => setIsStopped(false), 3000);
     });
 
-    gsap.ticker.lagSmoothing(1);
+    const raf = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(raf);
+    // 1ms threshold treated almost every frame as a lag spike; 0 disables it,
+    // which is what the gsap+Lenis integration expects.
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      if (timer) clearTimeout(timer);
+      gsap.ticker.remove(raf);
+      lenis.destroy();
+    };
   }, []);
 
   const handleMouseEnter = () => {

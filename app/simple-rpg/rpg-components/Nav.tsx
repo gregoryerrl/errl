@@ -91,7 +91,6 @@ export default function Nav() {
               variant="outline"
               onClick={() => {
                 setIsMenuOpen(!isMenuOpen);
-                console.log(isMenuOpen);
               }}
               className="rpg-button"
             >
